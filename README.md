@@ -36,9 +36,10 @@ Options via data-attributes: `data-max`, `data-venue`, `data-target`,
   Needs the `TICKETMASTER_API_KEY` repo secret.
 - **MLB stats API** (sportId 13, teamId 403) — AquaSox home games at Funko
   Field. Public, no key.
-- *TODO:* Port of Everett waterfront calendar (Revize CMS; its ICS export at
-  `/revize/plugins/calendar/editpages/export_events.jsp?webspaceId=everett`
-  currently 403s behind their CDN — revisit).
+- **Port of Everett calendar** — the Revize CMS app's plain XML data files
+  under `/calendar_app/db/` (month index + per-month events; repeat events
+  expanded from their explicit dates list). Jetty Island Days, Music at the
+  Marina, Sail-In Cinema, harbor tours. Public, no key.
 
 ## Layout
 

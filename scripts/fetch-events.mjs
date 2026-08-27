@@ -13,6 +13,9 @@ import { writeFileSync } from 'node:fs';
 import { buildIcs } from './ics.mjs';
 import { mergeWithArchive } from './merge.mjs';
 import { slugify, BADGE_FEEDS, TEAMS } from './badges.mjs';
+import { parsePoeMonths, parsePoeEvents } from './sources.mjs';
+
+const BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 
 const JSON_OUT = new URL('../site/events.json', import.meta.url);
 const ICS_OUT = new URL('../site/events.ics', import.meta.url);
@@ -86,9 +89,37 @@ async function aquaSoxHome() {
   return events;
 }
 
+// --- Port of Everett waterfront: the Revize CMS calendar publishes plain
+//     XML data files (month index + one events file per month) under
+//     /calendar_app/db/ — Jetty Island Days, Music at the Marina, Sail-In
+//     Cinema, and the rest of the waterfront season. ---
+const POE_DB = 'https://www.portofeverett.com/calendar_app/db/';
+
+async function portOfEverett() {
+  const idx = await fetch(`${POE_DB}calendar_1_activemonth_list.xml`, { headers: { 'user-agent': BROWSER_UA } });
+  if (!idx.ok) { console.error(`Port of Everett month index HTTP ${idx.status}`); return []; }
+  const nowYm = new Date().toISOString().slice(0, 7).replace('-', '');
+  const horizonYm = new Date(Date.now() + WINDOW_DAYS * 86400e3).toISOString().slice(0, 7).replace('-', '');
+  const months = parsePoeMonths(await idx.text()).filter((m) => m >= nowYm && m <= horizonYm);
+  const events = [];
+  for (const ym of months) {
+    try {
+      const r = await fetch(`${POE_DB}calendar_1_activemonthsdata_${ym.slice(0, 4)}-${ym.slice(4)}.xml`, { headers: { 'user-agent': BROWSER_UA } });
+      if (!r.ok) { console.error(`Port of Everett ${ym} HTTP ${r.status}`); continue; }
+      for (const e of parsePoeEvents(await r.text())) {
+        events.push({ venue: 'Port of Everett', ...e, url: 'https://www.portofeverett.com/calendar.php' });
+      }
+    } catch (err) {
+      console.error(`Port of Everett ${ym} failed:`, err.message);
+    }
+  }
+  console.log(`Port of Everett: ${events.length} occurrences from ${months.length} months`);
+  return events;
+}
+
 // AquaSox first: the stats API knows first-pitch times, Ticketmaster's
 // listings of the same games often don't — first source wins the de-dupe.
-const sources = [aquaSoxHome, ticketmasterEverett];
+const sources = [aquaSoxHome, ticketmasterEverett, portOfEverett];
 
 let all = [];
 for (const src of sources) {
