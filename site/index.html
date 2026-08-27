@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everett Events — arena, ballpark & waterfront</title>
+<meta name="description" content="What's on in Everett, WA — Angel of the Winds Arena, Funko Field, APEX Everett, and the waterfront. Calendar, iCal feed, and embeddable widget.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500;10..72,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=__V__">
+<link rel="alternate" type="text/calendar" href="events.ics" title="Everett Events">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="eyebrow">Everett · Washington</p>
+    <h1>Events around<br>Everett</h1>
+  </div>
+  <div class="masthead-actions">
+    <p class="updated" id="updated" aria-live="polite"></p>
+    <button id="subscribeBtn" class="btn-gold" type="button" aria-expanded="false">Add to your calendar</button>
+    <div id="subscribePop" class="pop" hidden>
+      <label class="pop-filter" id="subFilterRow" hidden>
+        <input type="checkbox" id="subUseFilter" checked> Include my filter choices
+      </label>
+      <div class="pop-tiles">
+        <a id="webcalLink" class="tile" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 9h18"/>
+            <path d="M12 12.5v5M9.5 15h5"/>
+          </svg>
+          <span>Calendar app</span>
+        </a>
+        <a id="gcalLink" class="tile" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 9h18"/>
+            <text x="12" y="18" text-anchor="middle" font-size="8.5" font-weight="700" fill="currentColor" stroke="none">G</text>
+          </svg>
+          <span>Google</span>
+        </a>
+        <a id="outlookLink" class="tile" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M8 3v4M16 3v4M3 9h18"/>
+            <text x="12" y="18" text-anchor="middle" font-size="8.5" font-weight="700" fill="currentColor" stroke="none">O</text>
+          </svg>
+          <span>Outlook</span>
+        </a>
+        <a id="qrBtn" class="tile" href="#" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/>
+            <rect x="4" y="14" width="6" height="6"/>
+            <path d="M14 14h2.5v2.5H14zM17.5 17.5H20V20h-2.5zM14 20h1M20 14v1"/>
+          </svg>
+          <span>QR code</span>
+        </a>
+        <a id="copyIcs" class="tile" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          <span>Copy link</span>
+        </a>
+      </div>
+      <div id="qrPanel" class="qr-panel" hidden>
+        <div id="qrImg" role="img" aria-label="QR code for the calendar feed"></div>
+        <p class="pop-note">Scan with your phone to subscribe there.</p>
+      </div>
+      <p class="pop-note">The feed refreshes every few hours; your calendar
+        refreshes it on its own schedule.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="filterbar" aria-label="Filters">
+  <button id="filterToggle" class="filter-icon" type="button" aria-expanded="false" aria-label="All filters">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 6h9M19 6h1M4 12h1M11 12h9M4 18h9M19 18h1"/>
+      <circle cx="16" cy="6" r="2.2"/><circle cx="8" cy="12" r="2.2"/><circle cx="16" cy="18" r="2.2"/>
+    </svg>
+  </button>
+  <button id="clearAll" class="filter-icon clear-icon" type="button" disabled aria-label="Clear all filters" title="Clear all filters">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </svg>
+  </button>
+  <div id="presets" class="presets"><!-- marquee venue pills injected by app.js --></div>
+</nav>
+<div id="filterPanel" class="filter-panel" hidden>
+  <div class="fp-group">
+    <h3>Hide home games <span class="fp-hint">every team you pick drops out</span></h3>
+    <div id="panelTeams" class="chip-row"><!-- team chips injected by app.js --></div>
+  </div>
+  <div class="fp-group">
+    <h3>Event type <span class="fp-hint">only events matching every pick</span></h3>
+    <div class="chip-row">
+      <button type="button" class="badge b-21" data-badge="21plus" aria-pressed="false" title="Door-restricted, no minors">21+</button>
+      <button type="button" class="badge b-day" data-badge="day" aria-pressed="false" title="Wraps up by 4 p.m.">day</button>
+      <button type="button" class="badge b-sold" data-badge="soldout" aria-pressed="false" title="Full house guaranteed">sold out</button>
+      <button type="button" class="badge b-free" data-badge="free" aria-pressed="false" title="Open to walk-ups">free</button>
+    </div>
+  </div>
+  <div class="fp-group">
+    <h3>Venues <span class="fp-hint">any picked venue counts</span></h3>
+    <div id="panelVenues" class="chip-row"><!-- every venue, injected by app.js --></div>
+  </div>
+  <div class="fp-group">
+    <button id="clearFilters" class="chip" type="button">Clear all filters</button>
+  </div>
+</div>
+
+<section class="agenda" aria-label="Upcoming events">
+  <h2 class="section-title" id="agendaTitle">On deck in Everett</h2>
+  <div class="agenda-layout">
+    <ol id="agenda"><li class="empty">Loading events…</li></ol>
+    <aside class="cal-side" aria-label="Month calendar">
+      <div class="cal">
+        <div class="cal-head">
+          <button id="calPrev" type="button" aria-label="Previous month">‹</button>
+          <h2 id="calTitle">…</h2>
+          <button id="calNext" type="button" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-dow" aria-hidden="true">
+          <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+        </div>
+        <div id="calGrid" class="cal-grid"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="share" id="embed">
+  <h2 class="section-title">Put this on your site</h2>
+  <div class="share-cols">
+    <div>
+      <h3>Events widget</h3>
+      <p>Drop these two lines into any page and the next events render in place.
+        Style it with the <code>evt-ev-</code> CSS classes.</p>
+<pre><code>&lt;div id="everett-events"&gt;&lt;/div&gt;
+&lt;script src="https://fosdal.net/everett-events/embed.js" data-max="8" defer&gt;&lt;/script&gt;</code></pre>
+    </div>
+    <div>
+      <h3>Data feeds</h3>
+      <p>The raw data behind this page, fetchable from anywhere (CORS is open):</p>
+      <ul class="feed-list">
+        <li><code>events.json</code> — <a href="events.json">JSON feed</a></li>
+        <li><code>events.ics</code> — <a href="events.ics">iCalendar feed</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Sources: Ticketmaster Discovery API and the MLB stats API. Listings link to the
+    venue or ticket page — check there for the final word.
+    A <a href="https://fosdal.net/">fosdal.net</a> project.</p>
+</footer>
+
+<script src="qrcode.js?v=__V__" defer></script>
+<script src="app.js?v=__V__" defer></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#1b2733"/>
+  <!-- stylized waterfront: sail over water -->
+  <path d="M16 4 L16 20 L7 20 Z" fill="#edf1f4"/>
+  <path d="M18 8 L18 20 L25 20 Z" fill="#e8791d"/>
+  <path d="M5 23 q3 -2 6 0 t6 0 t6 0 t6 0" stroke="#4a90c2" stroke-width="2" fill="none"/>
+  <path d="M5 27 q3 -2 6 0 t6 0 t6 0 t6 0" stroke="#4a90c2" stroke-width="2" fill="none"/>
+</svg>
