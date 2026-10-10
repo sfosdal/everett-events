@@ -23,7 +23,11 @@ const ICS_OUT = new URL('../site/events.ics', import.meta.url);
 // are kept for a year (carried forward from the previously published feed —
 // see mergeWithArchive).
 const WINDOW_DAYS = 365;
-const FEED_URL = process.env.FEED_URL || 'https://fosdal.net/everett-events/events.json';
+// The published feed, at the site's own domain (everett.here.events, added
+// 2026-10-10) with the old fosdal.net address as a fallback: whichever answers
+// carries the past events forward until DNS and the Pages domain are in place.
+const FEED_URL = process.env.FEED_URL || 'https://everett.here.events/events.json';
+const FEED_URL_OLD = 'https://fosdal.net/everett-events/events.json';
 const MAX_EVENTS = 1200; // sanity cap, not a display cap
 
 // The same venue appears under several spellings; fold to one name.
@@ -138,13 +142,17 @@ const fresh = all
 
 // carry past events forward from the previously published feed
 let archived = [];
-try {
-  const r = await fetch(FEED_URL);
-  if (r.ok) {
+async function fetchArchive(url, what) {
+  try {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const d = await r.json();
-    archived = (Array.isArray(d) ? d : (d.events || [])).map((e) => ({ ...e, venue: canonicalVenue(e.venue) }));
-  } else console.error(`Archive fetch HTTP ${r.status} — past events not carried this run`);
-} catch (err) { console.error('Archive fetch failed:', err.message); }
+    return (Array.isArray(d) ? d : (d.events || [])).map((e) => ({ ...e, venue: canonicalVenue(e.venue) }));
+  } catch (err) { console.error(`${what} fetch failed: ${err.message}`); return null; }
+}
+archived = await fetchArchive(FEED_URL, 'Archive');
+if (archived === null && !process.env.FEED_URL) archived = await fetchArchive(FEED_URL_OLD, 'Archive (old address)');
+if (archived === null) { console.error('Past events not carried this run'); archived = []; }
 
 const merged = mergeWithArchive(fresh, archived, today, cutoff).slice(-MAX_EVENTS);
 

@@ -3,7 +3,8 @@
 Event feed and calendar for Everett, WA: Angel of the Winds Arena, Funko
 Field (AquaSox), APEX Everett, and the waterfront.
 
-Live at **https://fosdal.net/everett-events/** — a GitHub Actions cron
+Live at **https://everett.here.events/** (the old fosdal.net/everett-events/ address
+redirects there) — a GitHub Actions cron
 refreshes the data every ~6 hours and deploys straight to GitHub Pages (no
 data commits).
 
@@ -23,7 +24,7 @@ Embed on any site:
 
 ```html
 <div id="everett-events"></div>
-<script src="https://fosdal.net/everett-events/embed.js" data-max="8" defer></script>
+<script src="https://everett.here.events/embed.js" data-max="8" defer></script>
 ```
 
 Options via data-attributes: `data-max`, `data-venue`, `data-target`,

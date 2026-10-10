@@ -3,7 +3,7 @@
  *
  * Usage on any site:
  *   <div id="everett-events"></div>
- *   <script src="https://fosdal.net/everett-events/embed.js" data-max="8" defer></script>
+ *   <script src="https://everett.here.events/embed.js" data-max="8" defer></script>
  *
  * Options (data- attributes on the script tag):
  *   data-max     max events to show (default 8)
