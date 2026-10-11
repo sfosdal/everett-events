@@ -120,4 +120,4 @@ clubs is on ESPN):
 - `site/` — static UI (no framework, no third-party services; QR codes via
   vendored MIT `qrcode.js`). Deployed as-is by the workflow.
 - `.github/workflows/events.yml` — test → fetch → archive branch → stamp asset
-  versions → deploy to Pages, on a ~6h cron + push + manual dispatch.
+  versions → deploy to Pages, once a day at noon Pacific + push + manual dispatch.

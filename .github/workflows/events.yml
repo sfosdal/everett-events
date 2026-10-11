@@ -2,7 +2,7 @@ name: build & publish events
 
 on:
   schedule:
-    - cron: '41 */6 * * *'   # every ~6h (GitHub cron is best-effort), off the lqa-events minute
+    - cron: '7 19 * * *'   # once a day at noon Pacific (19:00 UTC in daylight time, 11 AM PST in winter; GitHub cron is UTC, best-effort), off the lqa-events minute — Steve, 2026-10-11
   workflow_dispatch: {}
   push:
     branches: [main]
