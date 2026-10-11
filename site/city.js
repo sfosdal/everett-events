@@ -349,6 +349,7 @@
     name: 'Everett',
     site: 'https://everett.here.events/',
     userAgent: 'Mozilla/5.0 (compatible; everett-events/1.0; +https://everett.here.events/)',
+    tz: 'America/Los_Angeles', tzName: 'Pacific', // the city's time zone: the ICS feed's TZID, the game clocks, the poster's footer
     // the calendar feed's header; the UID domain never changes (changing it
     // re-creates every event in subscribers' calendars — the UIDs are the
     // ones the first site issued)
