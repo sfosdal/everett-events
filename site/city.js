@@ -37,6 +37,7 @@
   //             wiki the article (club: true — these clubs have no season
   //             pages on Wikipedia); opens when the season usually starts
   var HERALD = function (tag) { return ['https://www.heraldnet.com/tag/' + tag + '/feed/', 'The Herald']; };
+  var ST = function (s) { return ['https://www.seattletimes.com/sports/' + s + '/feed/', 'Seattle Times']; }; // the Seattle clubs' beat
   var WHL = { league: 'whl', key: '41b145a848f4bd67' }; // HockeyTech's WHL feed, the key chl.ca's own pages carry
   var AF1 = 'f5e44156-da48-4879-8f21-202caf5584e5'; // DigitalShift's public client id for washingtonwolfpack.com
   var TEAMS = [
@@ -62,6 +63,35 @@
       news: [['https://www.washingtonwolfpack.com/news.rss', 'Washington Wolfpack']] },
     // Everett Community College Trojans, NWAC: the locals (Steve, 2026-10-10). Home games enter the
     // listing from the conference's calendar (fetch-events.mjs nwacTrojans); no season feed, so no tab.
+    // The Seattle clubs Everett follows (Steve, 2026-10-11: "add kracken, the
+    // rugby team then seahawks and mariners"): Teams view only — their home
+    // grounds are not Everett venues, so no games enter the listing (no
+    // `inject`; lqa-events lists the Seawolves' home matches that way). The
+    // records are lqa-events' own, kept in step with its city.js.
+    { slug: 'kraken', label: 'Kraken', re: /kraken/i, sport: 'hockey', venue: 'Climate Pledge Arena', colors: ['#001628', '#99d9d9'],
+      espn: { sport: 'hockey', league: 'nhl', id: '124292' }, season: { kind: 'nhl', abbrev: 'SEA' }, form: { kind: 'espn' },
+      logo: 'https://a.espncdn.com/i/teamlogos/nhl/500/sea.png', schedule: 'https://www.nhl.com/kraken/schedule',
+      club: 'Seattle Kraken', opens: 'early October', wiki: { title: 'Seattle Kraken' },
+      news: [ST('kraken'), ['https://soundofhockey.com/feed/', 'Sound Of Hockey'], ['https://www.davyjoneslockerroom.com/rss/current.xml', "Davy Jones' Locker Room"]],
+      youtube: ['UCxspiBq2xf5pLjz9_NMjoyw'] }, // @seattlekraken (the NHL's clips come from api-web)
+    { slug: 'seawolves', label: 'Seawolves', re: /seawolves/i, sport: 'rugby', venue: 'Starfire Stadium', colors: ['#003057', '#6cbe45'],
+      season: { kind: 'seawolves' }, form: { kind: 'seawolves' },
+      logo: 'https://www.seawolves.rugby/images/seawolves-logo.png', schedule: 'https://www.seawolves.rugby/schedule',
+      club: 'Seattle Seawolves', opens: 'March', wiki: { title: 'Seattle Seawolves' },
+      youtube: ['UCPcMc2KfvSO0YGfxzrbzy3w', 'UCIynwDVqRK7KTUy72_kSBhA'] }, // @seattleseawolvesrugby, @USMLR
+    { slug: 'seahawks', label: 'Seahawks', re: /seahawks/i, sport: 'football', venue: 'Lumen Field', colors: ['#002244', '#69be28'],
+      espn: { sport: 'football', league: 'nfl', id: '26' }, season: { kind: 'espn' }, form: { kind: 'espn' },
+      logo: 'https://a.espncdn.com/i/teamlogos/nfl/500/sea.png', schedule: 'https://www.seahawks.com/schedule/',
+      club: 'Seattle Seahawks', opens: 'September', wiki: { title: 'Seattle Seahawks', startYear: true },
+      news: [ST('seahawks'), ['https://www.seahawks.com/rss/news', 'Seahawks.com'], ['https://www.fieldgulls.com/rss/current.xml', 'Field Gulls']],
+      youtube: ['UCzkFCRiMcOBeef8xcaqipmw', 'UCDVYQ4Zhbm3S2dlz7P1GBDg'] }, // @Seahawks, @NFL
+    { slug: 'mariners', label: 'Mariners', re: /mariners/i, sport: 'baseball', venue: 'T-Mobile Park', colors: ['#0c2c56', '#005c5c'],
+      espn: { sport: 'baseball', league: 'mlb', id: '12' }, season: { kind: 'mlb', id: 136 }, form: { kind: 'espn' },
+      logo: 'https://a.espncdn.com/i/teamlogos/mlb/500/sea.png', schedule: 'https://www.mlb.com/mariners/schedule',
+      club: 'Seattle Mariners', opens: 'late March', wiki: { title: 'Seattle Mariners' },
+      division: ['HOU', 'LAA', 'ATH', 'TEX'], // AL West, by the abbreviations the schedule carries (ATH since the Athletics left Oakland)
+      news: [ST('mariners'), ['https://www.mlb.com/mariners/feeds/news/rss.xml', 'MLB.com'], ['https://www.lookoutlanding.com/rss/current.xml', 'Lookout Landing']],
+      youtube: ['UCWWLs-O8JGYYcNea7AgumAA'] }, // @mariners (MLB's clips come from statsapi)
     { slug: 'trojans', label: 'Trojans', name: 'Everett CC Trojans', re: /\btrojans\b/i, sport: 'basketball', venue: 'Everett Community College', colors: ['#b3202c', '#2b2b2b'],
       strip: false, schedule: 'https://athletics.everettcc.edu/', club: 'Everett Trojans' },
   ];
@@ -180,8 +210,10 @@
   // order and a code is a bitmask over it, so the list is APPEND-ONLY —
   // adding an entry adds a bit and every existing code keeps meaning what
   // it meant; removing or reordering one changes every link out there.
-  // Five base-36 digits hold 25 bits; 23 are used.
-  var CODE_LENGTH = 5;
+  // Six base-36 digits hold 31 bits; 27 are used (five held 25 until the
+  // Seattle clubs arrived on 2026-10-11 — codes from that first day read fine,
+  // a shorter code is just a smaller number).
+  var CODE_LENGTH = 6;
   var REGISTRY = [
     ['venue', 'Angel of the Winds Arena'], ['venue', 'Funko Field'], ['venue', 'APEX Everett'], ['venue', 'Port of Everett'],
     ['venue', 'Village Theatre'], ['venue', 'New Life Church'], ['venue', 'Everett Community College'], ['venue', 'El Sid'], ['venue', 'Lucky Dime'],
@@ -189,6 +221,7 @@
     ['team', 'silvertips'], ['team', 'aquasox'], ['team', 'wolfpack'], ['team', 'trojans'],
     ['cap', 'stadium'], ['cap', 'arena'], ['cap', 'hall'], ['cap', 'room'],
     ['venue', 'Elsewhere in Everett'], // appended 2026-10-10
+    ['team', 'kraken'], ['team', 'seawolves'], ['team', 'seahawks'], ['team', 'mariners'], // appended 2026-10-11
   ];
 
   // The words the page uses for the place

@@ -2,5 +2,9 @@
   "_": "Off-season blurbs for the Teams view's form block (app.js renderTeamForm): shown before a season starts and once one is well over. Plain text, one per team slug. Edit freely — nothing generates this file.",
   "silvertips": "The Silvertips' WHL season runs late September to March at Angel of the Winds Arena, 34 home dates, with the playoffs beyond that for the top eight in the Western Conference.",
   "aquasox": "The AquaSox's Northwest League season runs early April to September at Funko Field, 66 home dates; the schedule above fills in once the league publishes it over the winter.",
-  "wolfpack": "The Wolfpack's Arena Football One season runs April to July at Angel of the Winds Arena, with the playoffs beyond that; the fixture list arrives over the winter."
+  "wolfpack": "The Wolfpack's Arena Football One season runs April to July at Angel of the Winds Arena, with the playoffs beyond that; the fixture list arrives over the winter.",
+  "kraken": "A new season at Climate Pledge Arena. The Kraken open on the road and are home within the first week.",
+  "seawolves": "The Seawolves' Major League Rugby season runs March to June at Starfire Stadium in Tukwila, with the playoffs beyond that; the 2027 fixture list arrives over the winter.",
+  "seahawks": "Mike Macdonald's third season in charge opens at Lumen Field. Flex-week kickoffs fill in above as the league confirms them.",
+  "mariners": "Spring training opens in Peoria in February and the regular season in late March; the schedule above fills in once MLB publishes it. Cal Raleigh and Julio Rodríguez remain the core of the lineup."
 }

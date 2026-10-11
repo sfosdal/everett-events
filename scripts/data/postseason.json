@@ -1,25 +1,164 @@
 {
- "_": "Each club's postseason for the season in hand — the rounds, their dates and the final's site — shown in the Teams view as 'if they qualify' until the real games arrive (the schedules flag those playoff: true, and a round with a real game in its window gives way to it). Hand-kept: update each season from the leagues' announcements. tbd: true marks a round whose dates are the usual calendar, not yet announced. Drafted 2026-10-10 from the leagues' usual calendars; none of the three had published 2027 dates yet.",
+ "_": "Each club's postseason for the season in hand — the rounds, their dates and the final's site — shown in the Teams view as 'if they qualify' until the real games arrive (the schedules flag those playoff: true, and a round with a real game in its window gives way to it). Hand-kept: update each season from the leagues' announcements. tbd: true marks a round whose dates are the usual calendar, not yet announced. Drafted 2026-10-10 from the leagues' usual calendars; none of the three had published 2027 dates yet. 2026-10-11: the four Seattle clubs copied from lqa-events — keep them in step with it.",
  "silvertips": {
   "season": "2026–27",
   "rounds": [
-   { "name": "WHL Playoffs, first round", "start": "2027-03-26", "end": "2027-04-06", "tbd": true },
-   { "name": "Second round", "start": "2027-04-08", "end": "2027-04-20", "tbd": true },
-   { "name": "Conference Championship", "start": "2027-04-22", "end": "2027-05-04", "tbd": true },
-   { "name": "WHL Championship", "start": "2027-05-07", "end": "2027-05-18", "tbd": true, "final": true }
+   {
+    "name": "WHL Playoffs, first round",
+    "start": "2027-03-26",
+    "end": "2027-04-06",
+    "tbd": true
+   },
+   {
+    "name": "Second round",
+    "start": "2027-04-08",
+    "end": "2027-04-20",
+    "tbd": true
+   },
+   {
+    "name": "Conference Championship",
+    "start": "2027-04-22",
+    "end": "2027-05-04",
+    "tbd": true
+   },
+   {
+    "name": "WHL Championship",
+    "start": "2027-05-07",
+    "end": "2027-05-18",
+    "tbd": true,
+    "final": true
+   }
   ]
  },
  "aquasox": {
   "season": "2027",
   "rounds": [
-   { "name": "Northwest League Championship Series", "start": "2027-09-14", "end": "2027-09-19", "tbd": true, "final": true }
+   {
+    "name": "Northwest League Championship Series",
+    "start": "2027-09-14",
+    "end": "2027-09-19",
+    "tbd": true,
+    "final": true
+   }
   ]
  },
  "wolfpack": {
   "season": "2027",
   "rounds": [
-   { "name": "AF1 Playoffs", "start": "2027-07-10", "end": "2027-07-18", "tbd": true },
-   { "name": "AF1 Championship", "start": "2027-07-24", "end": "2027-07-25", "tbd": true, "final": true }
+   {
+    "name": "AF1 Playoffs",
+    "start": "2027-07-10",
+    "end": "2027-07-18",
+    "tbd": true
+   },
+   {
+    "name": "AF1 Championship",
+    "start": "2027-07-24",
+    "end": "2027-07-25",
+    "tbd": true,
+    "final": true
+   }
+  ]
+ },
+ "kraken": {
+  "season": "2026–27",
+  "rounds": [
+   {
+    "name": "Stanley Cup Playoffs, first round",
+    "start": "2027-04-12",
+    "end": "2027-04-30",
+    "tbd": true
+   },
+   {
+    "name": "Second round",
+    "start": "2027-05-01",
+    "end": "2027-05-15",
+    "tbd": true
+   },
+   {
+    "name": "Conference Final",
+    "start": "2027-05-16",
+    "end": "2027-06-01",
+    "tbd": true
+   },
+   {
+    "name": "Stanley Cup Final",
+    "start": "2027-06-03",
+    "end": "2027-06-20",
+    "tbd": true,
+    "final": true
+   }
+  ]
+ },
+ "seawolves": {
+  "season": "2027",
+  "rounds": [
+   {
+    "name": "MLR Playoffs",
+    "start": "2027-06-05",
+    "end": "2027-06-13",
+    "tbd": true
+   },
+   {
+    "name": "MLR Championship Final",
+    "start": "2027-06-20",
+    "end": "2027-06-20",
+    "tbd": true,
+    "final": true
+   }
+  ]
+ },
+ "seahawks": {
+  "season": "2026",
+  "rounds": [
+   {
+    "name": "Wild Card",
+    "start": "2027-01-16",
+    "end": "2027-01-18"
+   },
+   {
+    "name": "Divisional",
+    "start": "2027-01-23",
+    "end": "2027-01-24"
+   },
+   {
+    "name": "NFC Championship",
+    "start": "2027-01-31",
+    "end": "2027-01-31"
+   },
+   {
+    "name": "Super Bowl LXI",
+    "start": "2027-02-14",
+    "end": "2027-02-14",
+    "site": "SoFi Stadium, Inglewood",
+    "final": true
+   }
+  ]
+ },
+ "mariners": {
+  "season": "2026",
+  "rounds": [
+   {
+    "name": "Wild Card Series",
+    "start": "2026-09-29",
+    "end": "2026-10-01"
+   },
+   {
+    "name": "Division Series",
+    "start": "2026-10-03",
+    "end": "2026-10-10"
+   },
+   {
+    "name": "ALCS",
+    "start": "2026-10-12",
+    "end": "2026-10-20"
+   },
+   {
+    "name": "World Series",
+    "start": "2026-10-23",
+    "end": "2026-10-31",
+    "final": true
+   }
   ]
  }
 }
