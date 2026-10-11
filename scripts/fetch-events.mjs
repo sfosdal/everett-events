@@ -15,7 +15,8 @@
  */
 import { writeFileSync, readFileSync } from 'node:fs';
 import { buildIcs } from './ics.mjs';
-import { parsePoeMonths, parsePoeEvents, parseSquarespaceEvents, dropTimeClashes, parseNwacIcal, isChurch } from './sources.mjs';
+import { spawnSync } from 'node:child_process';
+import { parsePoeMonths, parsePoeEvents, parseSquarespaceEvents, dropTimeClashes, parseNwacIcal, isChurch, parseCivicPlusRss, parseBiblioCommonsEvents, parseJsonLdEvents, parseMillCreekEvents, millCreekTime } from './sources.mjs';
 import { mergeWithArchive, unionArchives } from './merge.mjs';
 import { calmTitle, isNotice } from './titles.mjs';
 import { applySchedules } from './schedules.mjs';
@@ -174,17 +175,117 @@ async function nwacTrojans() {
 //     nights, Lucky Dime, Village Theatre runs). Their DICE / Eventbrite /
 //     free shows never reach Ticketmaster; `?format=json` exposes the
 //     rendered listing. ---
-function squarespace(label, base, path) {
+function squarespace(label, base, path, venue) {
   return async function () {
     const res = await fetch(`${base}${path}?format=json`, { headers: { 'user-agent': BROWSER_UA } });
     if (!res.ok) { console.error(`${label} HTTP ${res.status}`); return []; }
-    const events = parseSquarespaceEvents(await res.json(), { base, fallbackVenue: 'Everett' });
+    const events = parseSquarespaceEvents(await res.json(), { base, fallbackVenue: 'Everett', venue });
     console.log(`${label}: ${events.length} upcoming`);
     return events;
   };
 }
 const everettMusicInitiative = squarespace('Everett Music Initiative', 'https://www.everettmusicinitiative.com', '/shows');
 const lateShiftEverett = squarespace('Late Shift Everett', 'https://www.lateshifteverett.com', '/eventscalendar');
+// the rooms with a Squarespace calendar of their own (Steve, 2026-10-11:
+// "do everything under 20m" — the round that added the libraries, the
+// cities, the Schack, the Scuttlebutt, Tulalip and Edmonds)
+const schackArtCenter = squarespace('Schack Art Center', 'https://www.schack.org', '/classes-workshops-events', 'Schack Art Center');
+const scuttlebuttBrewing = squarespace('Scuttlebutt Brewing', 'https://www.scuttlebuttbrewing.com', '/events', 'Scuttlebutt Brewing');
+
+// --- A page behind a bot wall (the City of Everett's CivicPlus site,
+//     Songkick) is fetched through scripts/cffi-fetch.py, which asks as
+//     Chrome would; a plain fetch is the last resort. ---
+const CFFI = new URL('./cffi-fetch.py', import.meta.url).pathname;
+async function fetchText(url, label, { walled = false } = {}) {
+  if (walled) {
+    for (const [cmd, args] of [['uv', ['run', '--quiet', CFFI, url]], ['python3', [CFFI, url]]]) {
+      const r = spawnSync(cmd, args, { encoding: 'utf8', maxBuffer: 64e6 });
+      if (r.status === 0 && r.stdout) return r.stdout;
+    }
+  }
+  const res = await fetch(url, { headers: { 'user-agent': BROWSER_UA } });
+  if (!res.ok) throw new Error(`${label} HTTP ${res.status}`);
+  return res.text();
+}
+
+// --- CivicPlus calendars: the cities and the Everett Public Library.
+//     `reroute` moves an entry to another row (the City's calendar repeats
+//     the library's programs, which de-dupe once they share the row). ---
+function civicPlus(label, host, venue, { walled = false, reroute } = {}) {
+  return async function () {
+    const xml = await fetchText(`https://${host}/RSSFeed.aspx?ModID=58&CID=All-calendar.xml`, label, { walled });
+    let events = parseCivicPlusRss(xml, { venue });
+    if (reroute) events = events.map(reroute);
+    console.log(`${label}: ${events.length} events`);
+    return events;
+  };
+}
+const toLibrary = (e) => (/\b(?:Main Library|Evergreen Branch)\b/.test(e.title) ? { ...e, venue: 'Everett Public Library' } : e);
+const everettPublicLibrary = civicPlus('Everett Public Library', 'epls.org', 'Everett Public Library');
+const cityOfEverett = civicPlus('City of Everett', 'www.everettwa.gov', 'City of Everett', { walled: true, reroute: toLibrary });
+const cityOfMarysville = civicPlus('City of Marysville', 'www.marysvillewa.gov', 'City of Marysville');
+const cityOfMukilteo = civicPlus('City of Mukilteo', 'www.mukilteowa.gov', 'City of Mukilteo');
+const cityOfSnohomish = civicPlus('City of Snohomish', 'www.snohomishwa.gov', 'City of Snohomish');
+
+// --- Sno-Isle Libraries: every page of the BiblioCommons gateway (the
+//     API ignores its location and date filters), kept to the branches a
+//     short drive away. ---
+const SNO_ISLE_BRANCHES = { 23: 'Mukilteo', 29: 'Mariner', 20: 'Mill Creek', 25: 'Snohomish', 16: 'Lake Stevens', 19: 'Marysville', 18: 'Lynnwood', 13: 'Edmonds' };
+async function snoIsleLibraries() {
+  const out = [];
+  let pages = 1;
+  for (let page = 1; page <= pages && page <= 40; page++) {
+    const r = await fetch(`https://gateway.bibliocommons.com/v2/libraries/sno-isle/events?limit=100&page=${page}`, { headers: { 'user-agent': BROWSER_UA } });
+    if (!r.ok) { console.error(`Sno-Isle page ${page} HTTP ${r.status}`); break; }
+    const data = await r.json();
+    out.push(...parseBiblioCommonsEvents(data, { venue: 'Sno-Isle Libraries', branches: SNO_ISLE_BRANCHES }));
+    pages = data?.events?.pagination?.pages || 1;
+  }
+  console.log(`Sno-Isle Libraries: ${out.length} events at ${Object.keys(SNO_ISLE_BRANCHES).length} branches (${pages} pages)`);
+  return out;
+}
+
+// A page of schema.org markup lists what has happened as readily as what is
+// coming (Songkick's venue page keeps the spring's shows); a week's grace
+// keeps last night, nothing older.
+const RECENT = new Date(Date.now() - 7 * 86400e3).toISOString().slice(0, 10);
+const notStale = (events) => events.filter((e) => e.date >= RECENT);
+
+// --- Historic Downtown Snohomish: the Wix calendar names its events; each
+//     event page carries schema.org Event markup with the date and time. ---
+async function historicDowntownSnohomish() {
+  const base = 'https://www.historicdowntownsnohomish.org';
+  const cal = await fetchText(`${base}/calendar`, 'Historic Downtown Snohomish');
+  const slugs = [...new Set([...cal.matchAll(/event-details\/([a-z0-9-]+)/g)].map((m) => m[1]))];
+  const out = [];
+  for (const slug of slugs) {
+    try { out.push(...parseJsonLdEvents(await fetchText(`${base}/event-details/${slug}`, slug), { venue: 'Historic Downtown Snohomish' })); }
+    catch (err) { console.error(`Historic Downtown Snohomish ${slug}:`, err.message); }
+  }
+  console.log(`Historic Downtown Snohomish: ${out.length} events from ${slugs.length} pages`);
+  return notStale(out);
+}
+
+// --- City of Mill Creek: the Drupal list, then each event's page for its time. ---
+async function cityOfMillCreek() {
+  const base = 'https://millcreekwa.gov';
+  const events = parseMillCreekEvents(await fetchText(`${base}/events`, 'City of Mill Creek'), { venue: 'City of Mill Creek', base });
+  for (const e of events) {
+    try { e.time = millCreekTime(await fetchText(e.url, e.title)); } catch (err) { console.error(`Mill Creek ${e.title}:`, err.message); }
+  }
+  console.log(`City of Mill Creek: ${events.length} events`);
+  return events;
+}
+
+// --- Historic Everett Theatre: its own site is down (expired certificate,
+//     "Site Currently Unavailable", 2026-10-11), so Songkick's venue page
+//     stands in — schema.org Event markup, behind a bot wall. ---
+async function historicEverettTheatre() {
+  const html = await fetchText('https://www.songkick.com/venues/823286-historic-everett-theatre', 'Historic Everett Theatre', { walled: true });
+  const events = notStale(parseJsonLdEvents(html, { venue: 'Historic Everett Theatre', at: /historic everett/i, titleStrip: /\s*@\s*Historic Everett Theatre\s*$/i }));
+  console.log(`Historic Everett Theatre (Songkick): ${events.length} upcoming`);
+  return events;
+}
 
 const ticketmasterRooms = Object.entries(CITY.venues).filter(([, v]) => v.tm)
   .map(([label, v]) => () => ticketmasterVenue({ venueId: v.tm.id, venueMatch: v.tm.match, label, fallbackUrl: v.tm.fallbackUrl, exclude: v.tm.exclude }));
@@ -193,10 +294,12 @@ const sources = [
   ticketmasterEverett,
   portOfEverett,
   nwacTrojans,
+  everettPublicLibrary, cityOfEverett, cityOfMarysville, cityOfMukilteo, cityOfSnohomish, // the library first, so the City's repeats of its programs de-dupe onto it
+  snoIsleLibraries, historicDowntownSnohomish, cityOfMillCreek, schackArtCenter, historicEverettTheatre,
 ];
 // Secondary sources re-list shows the primaries carry under other titles;
 // anything at an already-taken venue/date/time is dropped.
-const secondary = [everettMusicInitiative, lateShiftEverett];
+const secondary = [everettMusicInitiative, lateShiftEverett, scuttlebuttBrewing];
 
 // Venue names as city.js spells them: a venue listed under other spellings
 // (`alias` — "Everett Memorial Stadium" is Funko Field, "Kings Hall" is at

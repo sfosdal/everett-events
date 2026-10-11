@@ -107,7 +107,8 @@
   //   tm       its Ticketmaster Discovery listing (fetch-events.mjs reads
   //            the venue by id — every page; the city sweep covers the rest)
   //   alias    the other spellings the feeds use for it, folded to this name
-  // No `area: 'town'` and no festivals: everything here is Everett's own,
+  // Since 2026-10-11 `area: 'town'` marks the towns a short drive away
+  // (the panel's Around Town group); no festivals yet. Before that everything here was Everett's own,
   // so the panel's Around Town and Festivals groups fold away (app.js).
   var VENUES = {
     'Angel of the Winds Arena': {
@@ -179,12 +180,126 @@
       color: '#e8a35a',
       alias: /lucky dime/i,
     },
+    // --- 2026-10-11, "do everything under 20m": the rest of Everett and the
+    //     towns a short drive away. The libraries, the Schack's classes and
+    //     the Scuttlebutt's weekly nights are default-off (they would crowd
+    //     the list the way the bars' nights would). ---
+    'Schack Art Center': {
+      type: 'community',
+      cssVar: '--v-schack',
+      color: '#e8b36a',
+      url: 'https://www.schack.org/classes-workshops-events',
+      icon: 'https://www.google.com/s2/favicons?domain=www.schack.org&sz=128',
+      alias: /schack/i,
+    },
+    'Everett Public Library': {
+      type: 'community',
+      cssVar: '--v-epls',
+      color: '#8fb9f0',
+      url: 'https://www.epls.org/Calendar.aspx',
+      icon: 'https://www.google.com/s2/favicons?domain=www.epls.org&sz=128',
+      alias: /everett public library|\bepls\b/i,
+    },
+    'City of Everett': {
+      type: 'community',
+      cssVar: '--v-city',
+      color: '#7fcfa0',
+      url: 'https://www.everettwa.gov/calendar.aspx',
+      icon: 'https://www.google.com/s2/favicons?domain=www.everettwa.gov&sz=128',
+    },
+    'Scuttlebutt Brewing': {
+      type: 'bar',
+      cssVar: '--v-scuttle',
+      color: '#e8a35a',
+      url: 'https://www.scuttlebuttbrewing.com/events',
+      icon: 'https://www.google.com/s2/favicons?domain=www.scuttlebuttbrewing.com&sz=128',
+      alias: /scuttlebutt/i,
+    },
+    'Historic Everett Theatre': {
+      capacity: 800,
+      type: 'concert',
+      cssVar: '--v-het',
+      color: '#f0a0b8',
+      url: 'https://www.songkick.com/venues/823286-historic-everett-theatre', // the theatre's own site is down (2026-10-11); point back at it when it returns
+      alias: /historic everett theat/i,
+    },
+    'Tulalip Resort Casino': {
+      area: 'town',
+      type: 'concert',
+      cssVar: '--v-tulalip',
+      color: '#d9a05b',
+      url: 'https://www.everythingtulalip.com/entertainment/calendar/',
+      icon: 'https://www.google.com/s2/favicons?domain=www.everythingtulalip.com&sz=128',
+      tm: { id: 'KovZpa3pFe', match: 'tulalip', fallbackUrl: 'https://www.everythingtulalip.com/entertainment/calendar/' },
+      alias: /tulalip (?:resort|amphitheat|casino)/i,
+    },
+    'Edmonds Center for the Arts': {
+      area: 'town',
+      capacity: 700,
+      type: 'arts',
+      cssVar: '--v-eca',
+      color: '#c8a0f0',
+      url: 'https://www.edmondscenterforthearts.org/events/',
+      icon: 'https://www.google.com/s2/favicons?domain=www.edmondscenterforthearts.org&sz=128',
+      tm: { id: 'KovZpZAFF7IA', match: 'edmonds center', fallbackUrl: 'https://www.edmondscenterforthearts.org/events/' },
+      alias: /edmonds center for the arts/i,
+    },
+    'Sno-Isle Libraries': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-snoisle',
+      color: '#9fd0e8',
+      url: 'https://sno-isle.bibliocommons.com/v2/events',
+      icon: 'https://www.google.com/s2/favicons?domain=www.sno-isle.org&sz=128',
+      alias: /sno-isle/i,
+    },
+    'City of Marysville': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-marysville',
+      color: '#f0b0a0',
+      url: 'https://www.marysvillewa.gov/calendar.aspx',
+      icon: 'https://www.google.com/s2/favicons?domain=www.marysvillewa.gov&sz=128',
+    },
+    'City of Mukilteo': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-mukilteo',
+      color: '#a0d8d0',
+      url: 'https://www.mukilteowa.gov/calendar.aspx',
+      icon: 'https://www.google.com/s2/favicons?domain=www.mukilteowa.gov&sz=128',
+    },
+    'City of Snohomish': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-snohomish',
+      color: '#d8c8a0',
+      url: 'https://www.snohomishwa.gov/calendar.aspx',
+      icon: 'https://www.google.com/s2/favicons?domain=www.snohomishwa.gov&sz=128',
+    },
+    'Historic Downtown Snohomish': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-hds',
+      color: '#e8c0d8',
+      url: 'https://www.historicdowntownsnohomish.org/calendar',
+      icon: 'https://www.google.com/s2/favicons?domain=www.historicdowntownsnohomish.org&sz=128',
+    },
+    'City of Mill Creek': {
+      area: 'town',
+      type: 'community',
+      cssVar: '--v-millcreek',
+      color: '#b0d8a0',
+      url: 'https://millcreekwa.gov/events',
+      icon: 'https://www.google.com/s2/favicons?domain=millcreekwa.gov&sz=128',
+    },
   };
 
   // The usual view: every room on, the two bars' weekly nights off (they
   // would crowd the list the way the SIFF showings did in Lower Queen Anne).
-  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett'];
-  var DEFAULT_OFF = ['El Sid', 'Lucky Dime'];
+  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett',
+    'City of Everett', 'Historic Everett Theatre', 'Tulalip Resort Casino', 'Edmonds Center for the Arts', 'City of Marysville', 'City of Mukilteo', 'City of Snohomish', 'Historic Downtown Snohomish', 'City of Mill Creek']; // the 2026-10-11 round
+  var DEFAULT_OFF = ['El Sid', 'Lucky Dime', 'Schack Art Center', 'Everett Public Library', 'Sno-Isle Libraries', 'Scuttlebutt Brewing']; // the libraries' daily programs, the Schack's class sessions and the brewery's weekly nights are there for whoever wants them (2026-10-11)
   // the first default-off venue saved prefs had to be told about (prefs
   // record `known` from the first build of this site)
   var PREFS_KNOWN_FROM = 'El Sid';
@@ -207,7 +322,7 @@
   // Six base-36 digits hold 31 bits; 27 are used (five held 25 until the
   // Seattle clubs arrived on 2026-10-11 — codes from that first day read fine,
   // a shorter code is just a smaller number).
-  var CODE_LENGTH = 6;
+  var CODE_LENGTH = 8; // 40 slots since 2026-10-11 (the under-20-minutes round); 6-digit codes from before still read
   var REGISTRY = [
     ['venue', 'Angel of the Winds Arena'], ['venue', 'Funko Field'], ['venue', 'APEX Everett'], ['venue', 'Port of Everett'],
     ['venue', 'Village Theatre'], ['venue', 'New Life Church'] /* dead slot: the venue left 2026-10-11 (church events are never listed); kept so older codes keep their meaning */, ['venue', 'Everett Community College'], ['venue', 'El Sid'], ['venue', 'Lucky Dime'],
@@ -216,6 +331,8 @@
     ['cap', 'stadium'], ['cap', 'arena'], ['cap', 'hall'], ['cap', 'room'],
     ['venue', 'Elsewhere in Everett'], // appended 2026-10-10
     ['team', 'kraken'], ['team', 'seawolves'], ['team', 'seahawks'], ['team', 'mariners'], // appended 2026-10-11
+    ['venue', 'Schack Art Center'], ['venue', 'Everett Public Library'], ['venue', 'City of Everett'], ['venue', 'Scuttlebutt Brewing'], ['venue', 'Historic Everett Theatre'], // appended 2026-10-11, the under-20-minutes round
+    ['venue', 'Tulalip Resort Casino'], ['venue', 'Edmonds Center for the Arts'], ['venue', 'Sno-Isle Libraries'], ['venue', 'City of Marysville'], ['venue', 'City of Mukilteo'], ['venue', 'City of Snohomish'], ['venue', 'Historic Downtown Snohomish'], ['venue', 'City of Mill Creek'],
   ];
 
   // The words the page uses for the place

@@ -23,6 +23,8 @@ jobs:
           node-version: '22'
       - name: Test
         run: node --test scripts/*.test.mjs
+      - name: Chrome-like fetch for the bot-walled sources (scripts/cffi-fetch.py)
+        run: pip install --quiet curl_cffi
       - name: Fetch & aggregate events
         env:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}

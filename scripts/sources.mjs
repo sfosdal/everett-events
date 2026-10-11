@@ -66,7 +66,7 @@ function decodeEntities(s) {
   });
 }
 
-export function parseSquarespaceEvents(data, { base, fallbackVenue = 'Everett' }) {
+export function parseSquarespaceEvents(data, { base, fallbackVenue = 'Everett', venue } = {}) {
   const tz = data?.website?.timeZone || 'America/Los_Angeles';
   const fmtDate = new Intl.DateTimeFormat('sv-SE', { timeZone: tz, dateStyle: 'short' });
   const fmtTime = new Intl.DateTimeFormat('sv-SE', { timeZone: tz, timeStyle: 'medium' });
@@ -75,7 +75,7 @@ export function parseSquarespaceEvents(data, { base, fallbackVenue = 'Everett' }
     if (!Number.isFinite(it.startDate)) continue;
     const start = new Date(it.startDate);
     out.push({
-      venue: (it.location?.addressTitle || '').trim() || fallbackVenue,
+      venue: venue || (it.location?.addressTitle || '').trim() || fallbackVenue, // `venue` pins a room's own calendar to its row, whatever each entry's location field says
       title: decodeEntities(it.title || '').replace(/\s+/g, ' ').trim(),
       date: fmtDate.format(start),
       time: fmtTime.format(start),
@@ -143,4 +143,100 @@ export function parseNwacIcal(ics, { team = 'Everett', name = 'Everett CC Trojan
     out.push({ venue, title: `${name} vs ${opp}${kind ? ` (${kind})` : ''}`, date, time, url: url ? new URL(icsText(url), base).href : base, type: 'sports' });
   }
   return out;
+}
+
+// --- CivicPlus calendars: the cities (Everett, Marysville, Mukilteo,
+//     Snohomish) and the Everett Public Library run CivicPlus, whose
+//     RSSFeed.aspx?ModID=58&CID=All-calendar.xml lists the month's events
+//     with <calendarEvent:EventDates> "October 13, 2026",
+//     <calendarEvent:EventTimes> "10:30 AM - 11:00 AM" and
+//     <calendarEvent:Location> an address. Council, board and commission
+//     meetings are civic business, not events, and go; Snohomish prefixes
+//     permitted events with the permit's status ("APPROVED 2026 River Run"). ---
+const MONTH_NO = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+export function civicDate(s) {
+  const m = /([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})/.exec(String(s || ''));
+  const mo = m && MONTH_NO[m[1].toLowerCase()];
+  return mo ? `${m[3]}-${String(mo).padStart(2, '0')}-${m[2].padStart(2, '0')}` : '';
+}
+export function civicTime(s) {
+  const m = /(\d{1,2})(?::(\d{2}))?\s*([AaPp])\.?[Mm]\.?/.exec(String(s || ''));
+  if (!m) return '';
+  let h = Number(m[1]) % 12; if (/p/i.test(m[3])) h += 12;
+  return `${String(h).padStart(2, '0')}:${m[2] || '00'}:00`;
+}
+const MEETING_RE = /\b(?:council|commission|committee|board|hearing|work session|study session|meeting|food bank|support group|klatch|office hours|public comment)\b/i;
+export function isMeeting(title) { return MEETING_RE.test(title || ''); }
+export function parseCivicPlusRss(xml, { venue, strip = /^(?:APPROVED|TENTATIVE|PENDING)\s*[-:]?\s*/i } = {}) {
+  const out = [];
+  for (const m of String(xml || '').matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const item = m[1];
+    const tag = (n) => { const r = new RegExp(`<${n}>([\\s\\S]*?)</${n}>`).exec(item); return r ? decodeEntities(r[1].replace(/<!\[CDATA\[|\]\]>/g, '')).replace(/\s+/g, ' ').trim() : ''; };
+    const title = tag('title').replace(strip, '');
+    const date = civicDate(tag('calendarEvent:EventDates'));
+    if (!title || !date || isMeeting(title)) continue;
+    out.push({ venue, title, date, time: civicTime(tag('calendarEvent:EventTimes')), url: tag('link') });
+  }
+  return out;
+}
+
+// --- Sno-Isle Libraries: the BiblioCommons events gateway
+//     (gateway.bibliocommons.com/v2/libraries/sno-isle/events, 100 a page)
+//     answers with entities.events, each wrapping a `definition` of title,
+//     start/end ("2026-12-16T09:30", local), branchLocationId and
+//     isCancelled. The branches a short drive from Everett are kept and
+//     named in the title; the rest of the system (Oak Harbor, Sultan, the
+//     bookmobile) is not. ---
+export function parseBiblioCommonsEvents(data, { venue, branches, base = 'https://sno-isle.bibliocommons.com' }) {
+  const out = [];
+  for (const [id, ev] of Object.entries(data?.entities?.events || {})) {
+    const d = ev?.definition || {};
+    const branch = branches[String(d.branchLocationId)];
+    if (!branch || d.isCancelled || !/^\d{4}-\d{2}-\d{2}/.test(d.start || '')) continue;
+    const title = decodeEntities(d.title || '').replace(/\s+/g, ' ').trim();
+    if (isMeeting(title)) continue; // Friends of the Library meetings, the library board
+    out.push({ venue, title: `${title} (${branch})`, date: d.start.slice(0, 10), time: /T\d{2}:\d{2}/.test(d.start) ? `${d.start.slice(11, 16)}:00` : '', url: `${base}/events/${id}` });
+  }
+  return out;
+}
+
+// --- JSON-LD events: a page that marks its events up as schema.org Event
+//     (Wix event pages — Historic Downtown Snohomish — and Songkick's venue
+//     page, the Historic Everett Theatre's stand-in while its own site is
+//     down). startDate is the venue's wall-clock time, with or without an
+//     offset; `at` keeps only events whose location names the place, since
+//     Songkick pads a venue page with other rooms' shows. ---
+export function parseJsonLdEvents(html, { venue, at, titleStrip }) {
+  const out = [];
+  for (const m of String(html || '').matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let j; try { j = JSON.parse(m[1]); } catch { continue; }
+    for (const o of (Array.isArray(j) ? j : [j])) {
+      if (!o || !/Event/.test(String(o['@type']))) continue;
+      const loc = typeof o.location === 'object' ? o.location?.name : o.location;
+      if (at && !at.test(loc || '')) continue;
+      const sd = String(o.startDate || '');
+      if (!/^\d{4}-\d{2}-\d{2}/.test(sd)) continue;
+      out.push({ venue, title: decodeEntities(o.name || '').replace(titleStrip || /$^/, '').replace(/\s+/g, ' ').trim(), date: sd.slice(0, 10), time: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(sd) ? `${sd.slice(11, 16)}:00` : '', url: String(o.url || '').split('?')[0] });
+    }
+  }
+  return out;
+}
+
+// --- City of Mill Creek: a Drupal events list (millcreekwa.gov/events) of
+//     name, "Saturday, October 10, 2026" and location; the clock time sits
+//     on each event's own page ("10:30 a.m. - 11:30 a.m."). ---
+export function parseMillCreekEvents(html, { venue, base = 'https://millcreekwa.gov' }) {
+  const out = [];
+  for (const m of String(html || '').matchAll(/event-list__item-name">\s*<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>[\s\S]*?event-list__item-date">\s*([^<]+)</g)) {
+    const date = civicDate(m[3]);
+    const title = decodeEntities(m[2]).replace(/\s+/g, ' ').trim();
+    if (!date || isMeeting(title)) continue;
+    out.push({ venue, title, date, time: '', url: new URL(m[1], base).href });
+  }
+  return out;
+}
+export function millCreekTime(html) {
+  const text = String(html || '').replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ');
+  const main = text.slice(Math.max(0, text.search(/event-detail|field--name-field-date|\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?/i)));
+  return civicTime(/\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?/i.exec(main)?.[0]);
 }

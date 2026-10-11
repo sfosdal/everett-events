@@ -24,6 +24,8 @@
   --v-village: #c0392b;   /* Village Theatre: stage-curtain red */
   --v-evcc: #b3202c;      /* Everett CC Trojans: the college's red */
   --v-elsid: #b8860b; --v-dime: #c47a2b; --v-else: #6b7f93; /* the downtown bars: El Sid gold, Lucky Dime amber */
+  --v-schack: #c48a2a; --v-epls: #3a6fc4; --v-city: #2f8f5a; --v-scuttle: #b8862a; --v-het: #c4507a; /* the 2026-10-11 round: the Schack ochre, library blue, city green, the brewery's amber, the theatre's rose */
+  --v-tulalip: #b07a2a; --v-eca: #7a4fc4; --v-snoisle: #3a8fb0; --v-marysville: #c4603a; --v-mukilteo: #2f8f8f; --v-snohomish: #8f7a3a; --v-hds: #b05a8a; --v-millcreek: #5a8f3a; /* Around Town */
   --venue-text: 72%;     /* how much of the venue hue the card's venue label keeps (light mode) */
   --tint: 26%;           /* the venue wash behind each card (light mode; 13% in the dark palette) */
   /* event-type hues (calendar ticks, agenda right edge): concerts salmon and
@@ -56,6 +58,8 @@
     --line: #333f4a; --gold: #f08a33; --gold-soft: #3a2a1a;
     --v-aotw: #6aa9f0; --v-funko: #5fcbd6; --v-apex: #b58cf2; --v-port: #5fb3a1; --v-village: #f0827a;
     --v-evcc: #f08a8a; --v-elsid: #e8c45a; --v-dime: #e8a35a; --v-else: #9fb0c0;
+    --v-schack: #e8b36a; --v-epls: #8fb9f0; --v-city: #7fcfa0; --v-scuttle: #e8a35a; --v-het: #f0a0b8;
+    --v-tulalip: #d9a05b; --v-eca: #c8a0f0; --v-snoisle: #9fd0e8; --v-marysville: #f0b0a0; --v-mukilteo: #a0d8d0; --v-snohomish: #d8c8a0; --v-hds: #e8c0d8; --v-millcreek: #b0d8a0;
     --venue-text: 100%; --tint: 13%;
     --t-concert: #f0806a; --t-sports: #f2d21b; --t-arts: #d63a4f;
     --t-movie: #8b9db0; --t-community: #e660a8; --t-expo: #4fd1c5; --t-bar: #e3ad3c; --alert: #ff4b3e;
@@ -67,6 +71,8 @@
   --line: #333f4a; --gold: #f08a33; --gold-soft: #3a2a1a;
   --v-aotw: #6aa9f0; --v-funko: #5fcbd6; --v-apex: #b58cf2; --v-port: #5fb3a1; --v-village: #f0827a;
   --v-evcc: #f08a8a; --v-elsid: #e8c45a; --v-dime: #e8a35a; --v-else: #9fb0c0;
+  --v-schack: #e8b36a; --v-epls: #8fb9f0; --v-city: #7fcfa0; --v-scuttle: #e8a35a; --v-het: #f0a0b8;
+  --v-tulalip: #d9a05b; --v-eca: #c8a0f0; --v-snoisle: #9fd0e8; --v-marysville: #f0b0a0; --v-mukilteo: #a0d8d0; --v-snohomish: #d8c8a0; --v-hds: #e8c0d8; --v-millcreek: #b0d8a0;
   --venue-text: 100%; --tint: 13%;
   --t-concert: #f0806a; --t-sports: #f2d21b; --t-arts: #d63a4f;
   --t-movie: #8b9db0; --t-community: #e660a8; --t-expo: #4fd1c5; --t-bar: #e3ad3c; --alert: #ff4b3e;

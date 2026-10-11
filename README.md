@@ -56,12 +56,32 @@ Options via data-attributes: `data-max`, `data-venue`, `data-target`,
 
 Events:
 
-- **Ticketmaster Discovery API** — Angel of the Winds Arena and APEX Everett
-  by venue id (every page), plus a city=Everett sweep for everything else on
+- **Ticketmaster Discovery API** — Angel of the Winds Arena, APEX Everett,
+  Tulalip Resort Casino and Edmonds Center for the Arts by venue id (every
+  page), plus a city=Everett sweep for everything else on
   sale in town (Funko Field, whatever books next; church events are dropped
   at every source, see `isChurch`). Resale-only listings are kept
   only when no primary one shares the date. Needs the `TICKETMASTER_API_KEY`
   repo secret (locally, an untracked `.env`).
+- **CivicPlus calendars** — the City of Everett, Marysville, Mukilteo and
+  Snohomish sites and the Everett Public Library publish the month's events
+  as RSS (`RSSFeed.aspx?ModID=58&CID=All-calendar.xml`); council, board and
+  commission meetings are dropped (`isMeeting`). The City of Everett's site
+  sits behind a bot wall, so it is fetched through `scripts/cffi-fetch.py`
+  (curl_cffi, as Chrome; `uv run` locally, `pip install curl_cffi` in
+  Actions).
+- **Sno-Isle Libraries** — the BiblioCommons events gateway, every page,
+  kept to the branches a short drive from Everett (Mukilteo, Mariner, Mill
+  Creek, Snohomish, Lake Stevens, Marysville, Lynnwood, Edmonds).
+- **Squarespace calendars** — Schack Art Center (classes and workshops) and
+  Scuttlebutt Brewing (weekly nights), `?format=json` like the EMI and Late
+  Shift feeds.
+- **Historic Downtown Snohomish** — the Wix calendar's event pages, read
+  from their schema.org Event markup.
+- **City of Mill Creek** — the Drupal events list, each event's page for its
+  time.
+- **Historic Everett Theatre** — Songkick's venue page (schema.org Event
+  markup, behind a bot wall) while the theatre's own site is down.
 - **Port of Everett calendar** — the Revize CMS app's plain XML data files
   under `/calendar_app/db/` (month index + per-month events; repeat events
   expanded from their explicit dates list). Public, no key.
