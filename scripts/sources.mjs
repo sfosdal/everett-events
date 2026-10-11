@@ -49,3 +49,90 @@ export function parsePoeEvents(xml) {
   }
   return out;
 }
+
+/**
+ * Squarespace calendar/event collections (Everett Music Initiative, Late
+ * Shift Everett) answer `<page>?format=json` with the same data the page
+ * renders: `upcoming` items carrying an epoch-ms startDate, an HTML-escaped
+ * title, a site-relative fullUrl and a location.addressTitle venue.
+ */
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", '#39': "'", '#x27': "'", nbsp: ' ' };
+function decodeEntities(s) {
+  return String(s).replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, name) => {
+    if (name in ENTITIES) return ENTITIES[name];
+    if (/^#x/i.test(name)) return String.fromCodePoint(parseInt(name.slice(2), 16));
+    if (name[0] === '#') return String.fromCodePoint(parseInt(name.slice(1), 10));
+    return m;
+  });
+}
+
+export function parseSquarespaceEvents(data, { base, fallbackVenue = 'Everett' }) {
+  const tz = data?.website?.timeZone || 'America/Los_Angeles';
+  const fmtDate = new Intl.DateTimeFormat('sv-SE', { timeZone: tz, dateStyle: 'short' });
+  const fmtTime = new Intl.DateTimeFormat('sv-SE', { timeZone: tz, timeStyle: 'medium' });
+  const out = [];
+  for (const it of data?.upcoming || []) {
+    if (!Number.isFinite(it.startDate)) continue;
+    const start = new Date(it.startDate);
+    out.push({
+      venue: (it.location?.addressTitle || '').trim() || fallbackVenue,
+      title: decodeEntities(it.title || '').replace(/\s+/g, ' ').trim(),
+      date: fmtDate.format(start),
+      time: fmtTime.format(start),
+      url: it.fullUrl ? new URL(it.fullUrl, base).href : base,
+    });
+  }
+  return out;
+}
+
+// Secondary sources list shows the primary ones already carry under slightly
+// different titles ("… & Lady A" vs "… + Lady A"), so exact-key de-dupe
+// misses them. A candidate is dropped when an existing event sits at the
+// same venue, date and clock time; untimed events never clash.
+export function dropTimeClashes(candidates, existing) {
+  const taken = new Set(existing.filter((e) => e.time).map((e) => `${e.venue}|${e.date}|${e.time}`));
+  return candidates.filter((e) => !e.time || !taken.has(`${e.venue}|${e.date}|${e.time}`));
+}
+
+/**
+ * NWAC (Northwest Athletic Conference) schedules — the Everett Community
+ * College Trojans' home games. nwacsports.com runs on PrestoSports, whose
+ * schedule pages answer `?print=ical` with the whole conference's season for
+ * one sport (the teamId parameter is ignored), so the feed is filtered to
+ * the one college here. A VEVENT carries DTSTART (UTC, or ;VALUE=DATE for a
+ * day with no time yet), SUMMARY "(Women's Soccer) Northwest University at
+ * Everett (6-0)" — the sport in parentheses, "A at B" with B the host or
+ * "A vs. B" at a neutral site, a score once final — CATEGORIES the sport,
+ * LOCATION the ground ("Everett Memorial Stadium\, 3900 Broadway\, Everett\,
+ * WA"), URL the box score's site path. A game is a home game when the
+ * LOCATION names Everett (an "Everett vs." friendly at Starfire is not).
+ */
+const PT_DATE = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Los_Angeles', dateStyle: 'short' });
+const PT_TIME = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Los_Angeles', timeStyle: 'medium' });
+function icsText(s) { return String(s || '').replace(/\\([,;\\])/g, '$1').replace(/\\n/gi, ' ').trim(); }
+export function parseNwacIcal(ics, { team = 'Everett', name = 'Everett CC Trojans', venue = 'Everett Community College', sport = '', base = 'https://nwacsports.com' } = {}) {
+  const text = String(ics).replace(/\r\n/g, '\n').replace(/\n[ \t]/g, ''); // unfold continuation lines
+  const out = [];
+  for (const ev of text.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || []) {
+    const grab = (key) => { const m = ev.match(new RegExp(`^${key}(;[^:\\n]*)?:(.*)$`, 'm')); return m ? [m[2].trim(), m[1] || ''] : ['', '']; };
+    const [summaryRaw] = grab('SUMMARY'), [location] = grab('LOCATION'), [categories] = grab('CATEGORIES'), [url] = grab('URL'), [dtstart, params] = grab('DTSTART');
+    const summary = icsText(summaryRaw);
+    const m = summary.match(/^(?:\(([^)]*)\)\s*)?(.*?)(?:\s*\(\d+-\d+\))?$/); // "(sport) A at B (score)"
+    const kind = (m && m[1]) || icsText(categories) || sport;
+    const matchup = (m && m[2]) || summary;
+    const sides = matchup.split(/\s+(?:at|vs\.?)\s+/i);
+    if (sides.length !== 2) continue;
+    const away = /\s+at\s+/i.test(matchup) ? sides[0] : null;
+    const hasTeam = new RegExp(`\\b${team}\\b`, 'i');
+    if (!hasTeam.test(sides[0]) && !hasTeam.test(sides[1])) continue;
+    const home = /everett/i.test(icsText(location)) || (!icsText(location) && away !== null && hasTeam.test(sides[1]));
+    if (!home) continue;
+    const opp = hasTeam.test(sides[0]) ? sides[1] : sides[0];
+    let date = '', time = '';
+    if (/VALUE=DATE/i.test(params)) { const d = dtstart.match(/^(\d{4})(\d{2})(\d{2})/); if (d) date = `${d[1]}-${d[2]}-${d[3]}`; }
+    else { const d = dtstart.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/); if (d) { const t = new Date(Date.UTC(+d[1], d[2] - 1, +d[3], +d[4], +d[5], +d[6])); date = PT_DATE.format(t); time = PT_TIME.format(t); } }
+    if (!date) continue;
+    out.push({ venue, title: `${name} vs ${opp}${kind ? ` (${kind})` : ''}`, date, time, url: url ? new URL(icsText(url), base).href : base, type: 'sports' });
+  }
+  return out;
+}

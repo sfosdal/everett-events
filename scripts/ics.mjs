@@ -8,6 +8,9 @@
  * accumulating duplicates when the feed refreshes.
  */
 import { createHash } from 'node:crypto';
+import '../site/city.js'; // the calendar's name, PRODID and UID domain are the city's
+const CITY = globalThis.LQACity;
+import { setTimesText } from './settimes.mjs';
 
 const TZID = 'America/Los_Angeles';
 const DEFAULT_DURATION_H = 3;
@@ -35,7 +38,7 @@ const VTIMEZONE = [
 
 export function eventUid(e) {
   const hash = createHash('sha1').update(`${e.venue}|${e.title}|${e.date}`).digest('hex');
-  return `${hash}@fosdal.net`;
+  return `${hash}@${CITY.ics.uidDomain}`;
 }
 
 export function escapeText(s) {
@@ -100,25 +103,38 @@ function eventLines(e, dtstamp) {
     lines.push(`DTSTART;VALUE=DATE:${dateDigits(e.date)}`);
     lines.push(`DTEND;VALUE=DATE:${addHours(e.date, '00:00', 24).slice(0, 8)}`);
   }
-  lines.push(`SUMMARY:${escapeText(e.title)}`);
+  // a cancelled/postponed show keeps its slot, marked — calendars vary in
+  // how they show STATUS:CANCELLED, so the summary says it too
+  const prefix = e.status === 'cancelled' ? 'CANCELLED: ' : e.status === 'postponed' ? 'POSTPONED: ' : '';
+  lines.push(`SUMMARY:${prefix}${escapeText(e.title)}${e.dateTbd ? ' (date TBD)' : ''}`);
+  if (e.status === 'cancelled') lines.push('STATUS:CANCELLED');
+  else if (e.status === 'postponed') lines.push('STATUS:TENTATIVE');
   lines.push(`LOCATION:${escapeText(e.venue)}`);
+  if (e.status) {
+    const since = e.statusSince ? ` (noticed ${e.statusSince.slice(0, 10)})` : '';
+    lines.push(`DESCRIPTION:${escapeText(`This event has been ${e.status}${since}. Check the ticket page for refunds or a new date.`)}`);
+  }
+  else if (e.dateTbd) lines.push(`DESCRIPTION:${escapeText('Date not final — the league may still move this game. The feed updates within a few hours of a change.')}`);
+  else if (Array.isArray(e.sets) && e.sets.length) lines.push(`DESCRIPTION:${escapeText('Set times\n' + setTimesText(e.sets))}`); // a festival day with its grid: a line per stage (Capitol Hill Block Party)
+  else if (Array.isArray(e.lineup) && e.lineup.length) lines.push(`DESCRIPTION:${escapeText('Lineup: ' + e.lineup.join(', '))}`); // a festival day: the whole bill
+  else if (e.stage) lines.push(`DESCRIPTION:${escapeText(e.stage + (e.end ? '' : ', to close'))}`); // one set of a festival day: its stage (the times are the event's own)
   if (e.url) lines.push(`URL:${escapeText(e.url)}`);
   lines.push('END:VEVENT');
   return lines;
 }
 
-export function buildIcs(events, now = new Date(), { calname = 'Lower Queen Anne Events' } = {}) {
+export function buildIcs(events, now = new Date(), { calname = CITY.ics.name } = {}) {
   const dtstamp =
     `${now.getUTCFullYear()}${pad(now.getUTCMonth() + 1)}${pad(now.getUTCDate())}` +
     `T${pad(now.getUTCHours())}${pad(now.getUTCMinutes())}${pad(now.getUTCSeconds())}Z`;
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//fosdal.net//lqa-events//EN',
+    `PRODID:${CITY.ics.prodid}`,
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     `X-WR-CALNAME:${escapeText(calname)}`,
-    'X-WR-CALDESC:Upcoming events around Seattle Center — Climate Pledge Arena\\, McCaw Hall\\, Seattle Center',
+    `X-WR-CALDESC:${CITY.ics.desc}`,
     `X-WR-TIMEZONE:${TZID}`,
     'REFRESH-INTERVAL;VALUE=DURATION:PT6H',
     'X-PUBLISHED-TTL:PT6H',

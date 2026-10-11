@@ -1,0 +1,25 @@
+{
+ "_": "Each club's postseason for the season in hand — the rounds, their dates and the final's site — shown in the Teams view as 'if they qualify' until the real games arrive (the schedules flag those playoff: true, and a round with a real game in its window gives way to it). Hand-kept: update each season from the leagues' announcements. tbd: true marks a round whose dates are the usual calendar, not yet announced. Drafted 2026-10-10 from the leagues' usual calendars; none of the three had published 2027 dates yet.",
+ "silvertips": {
+  "season": "2026–27",
+  "rounds": [
+   { "name": "WHL Playoffs, first round", "start": "2027-03-26", "end": "2027-04-06", "tbd": true },
+   { "name": "Second round", "start": "2027-04-08", "end": "2027-04-20", "tbd": true },
+   { "name": "Conference Championship", "start": "2027-04-22", "end": "2027-05-04", "tbd": true },
+   { "name": "WHL Championship", "start": "2027-05-07", "end": "2027-05-18", "tbd": true, "final": true }
+  ]
+ },
+ "aquasox": {
+  "season": "2027",
+  "rounds": [
+   { "name": "Northwest League Championship Series", "start": "2027-09-14", "end": "2027-09-19", "tbd": true, "final": true }
+  ]
+ },
+ "wolfpack": {
+  "season": "2027",
+  "rounds": [
+   { "name": "AF1 Playoffs", "start": "2027-07-10", "end": "2027-07-18", "tbd": true },
+   { "name": "AF1 Championship", "start": "2027-07-24", "end": "2027-07-25", "tbd": true, "final": true }
+  ]
+ }
+}

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { poeDate, parsePoeMonths, parsePoeEvents } from './sources.mjs';
+import { poeDate, parsePoeMonths, parsePoeEvents, parseNwacIcal } from './sources.mjs';
 
 test('poeDate parses the Port calendar date style', () => {
   assert.equal(poeDate('Aug 4, 2026'), '2026-08-04');
@@ -52,5 +52,68 @@ test('parsePoeEvents expands repeats and drops noise', () => {
     { title: 'Music at the Marina', date: '2026-08-06', time: '18:00:00' },
     { title: 'Music at the Marina', date: '2026-08-13', time: '18:00:00' },
     { title: 'Wheels on the Waterfront Car Show', date: '2026-08-22', time: '' },
+  ]);
+});
+
+import { parseSquarespaceEvents, dropTimeClashes } from './sources.mjs';
+
+// Trimmed from lateshifteverett.com/eventscalendar?format=json — startDate is
+// epoch ms; the site's time zone is America/Los_Angeles.
+const SQ_SAMPLE = {
+  website: { timeZone: 'America/Los_Angeles' },
+  upcoming: [
+    {
+      title: 'Leroy Bell &amp; His Only Friends + Lady A',
+      startDate: 1789178400694, // 2026-09-11 19:00 PDT
+      fullUrl: '/shows/2026/9/11/leroy-bell',
+      location: { addressTitle: 'Kings Hall at APEX Everett' },
+    },
+    {
+      title: 'And Then There Were None',
+      startDate: 1798929000337, // 2027-01-02 14:30 PST
+      fullUrl: '/eventscalendar/and-then',
+      location: {},
+    },
+    { title: 'No date, skipped', fullUrl: '/x', location: { addressTitle: 'Lucky Dime' } },
+  ],
+};
+
+test('parseSquarespaceEvents maps items to local date/time, decoded title, absolute url', () => {
+  const evs = parseSquarespaceEvents(SQ_SAMPLE, { base: 'https://www.example.com', fallbackVenue: 'Everett' });
+  assert.deepEqual(evs, [
+    { venue: 'Kings Hall at APEX Everett', title: 'Leroy Bell & His Only Friends + Lady A',
+      date: '2026-09-11', time: '19:00:00', url: 'https://www.example.com/shows/2026/9/11/leroy-bell' },
+    { venue: 'Everett', title: 'And Then There Were None',
+      date: '2027-01-02', time: '14:30:00', url: 'https://www.example.com/eventscalendar/and-then' },
+  ]);
+});
+
+test('dropTimeClashes drops candidates already covered at the same venue, date and time', () => {
+  const existing = [
+    { venue: 'APEX Everett', date: '2026-09-11', time: '19:00:00', title: 'Leroy Bell & His Only Friends & Lady A' },
+    { venue: 'Port of Everett', date: '2026-09-11', time: '', title: 'Jetty Island Days' },
+  ];
+  const candidates = [
+    { venue: 'APEX Everett', date: '2026-09-11', time: '19:00:00', title: 'Leroy Bell + Lady A' }, // clash
+    { venue: 'APEX Everett', date: '2026-09-11', time: '21:00:00', title: 'Late show' },           // different time
+    { venue: 'Port of Everett', date: '2026-09-11', time: '', title: 'Untimed thing' },            // no time: never a clash
+  ];
+  assert.deepEqual(dropTimeClashes(candidates, existing).map((e) => e.title), ['Late show', 'Untimed thing']);
+});
+
+test('parseNwacIcal: the one college\'s home games — "at Everett" or an Everett ground — in Pacific time, with the sport; friendlies elsewhere and other colleges\' games dropped', () => {
+  const ics = [
+    'BEGIN:VCALENDAR', 'BEGIN:VEVENT', 'DTSTART:20260903T020000Z', 'SUMMARY:(Women\'s Soccer) Northwest University at Everett (6-0)', 'CATEGORIES:Women\'s Soccer',
+    'LOCATION:Everett Memorial Stadium\\, 3900 Broadway\\, Everett\\,', ' WA', 'URL:/sports/wsoc/2026-27/boxscores/20260902_iapq.xml', 'END:VEVENT',
+    'BEGIN:VEVENT', 'DTSTART:20260818T220000Z', 'SUMMARY:(Women\'s Soccer) Everett vs. Blue Mountain (1-2)', 'LOCATION:Starfire Sports Complex', 'END:VEVENT', // a neutral-site friendly in Tukwila
+    'BEGIN:VEVENT', 'DTSTART:20260910T010000Z', 'SUMMARY:(Women\'s Soccer) Everett at Skagit Valley', 'LOCATION:Skagit Valley College\\, Mount Vernon\\, WA', 'END:VEVENT', // away
+    'BEGIN:VEVENT', 'DTSTART;VALUE=DATE:20261121', 'SUMMARY:(Men\'s Basketball) Bellevue at Everett', 'LOCATION:Everett Community College', 'END:VEVENT', // no time yet
+    'BEGIN:VEVENT', 'DTSTART:20260910T010000Z', 'SUMMARY:(Women\'s Soccer) Peninsula at Olympic', 'LOCATION:Bremerton\\, WA', 'END:VEVENT', // another college's
+    'END:VCALENDAR',
+  ].join('\r\n');
+  const out = parseNwacIcal(ics);
+  assert.deepEqual(out, [
+    { venue: 'Everett Community College', title: 'Everett CC Trojans vs Northwest University (Women\'s Soccer)', date: '2026-09-02', time: '19:00:00', url: 'https://nwacsports.com/sports/wsoc/2026-27/boxscores/20260902_iapq.xml', type: 'sports' },
+    { venue: 'Everett Community College', title: 'Everett CC Trojans vs Bellevue (Men\'s Basketball)', date: '2026-11-21', time: '', url: 'https://nwacsports.com', type: 'sports' },
   ]);
 });

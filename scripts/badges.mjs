@@ -21,12 +21,11 @@ export function isDay(e) {
   return !!end && end <= '16:00:00';
 }
 
-// Local teams, matched on the event title no matter what the venue.
-export const TEAMS = [
-  { slug: 'silvertips', label: 'Silvertips', re: /silvertips/i },
-  { slug: 'aquasox', label: 'AquaSox', re: /aquasox/i },
-  { slug: 'wolfpack', label: 'Wolfpack', re: /wolfpack/i },
-];
+// The home teams, matched on the event title no matter what the venue —
+// the city's (site/city.js), the three fields the build needs.
+import '../site/city.js';
+export const CITY = globalThis.LQACity;
+export const TEAMS = CITY.teams.map(({ slug, label, re }) => ({ slug, label, re }));
 
 // key → [label for the calendar name, predicate]
 export const BADGE_FEEDS = {
@@ -34,4 +33,6 @@ export const BADGE_FEEDS = {
   'day': ['daytime', isDay],
   'soldout': ['sold out', (e) => !!e.soldOut],
   'free': ['free', (e) => !!e.free],
+  'movie': ['SIFF movies', (e) => !!e.movie],
+  'siffevent': ['SIFF events', (e) => e.venue === 'SIFF Cinema Uptown' && !e.movie],
 };

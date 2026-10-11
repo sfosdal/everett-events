@@ -36,7 +36,7 @@
         '.evt-ev-title{font-weight:600;text-decoration:none;color:inherit}' +
         '.evt-ev-title:hover{text-decoration:underline}' +
         '.evt-ev-venue{font-size:.8em;text-transform:uppercase;letter-spacing:.05em;opacity:.6}' +
-        '.evt-ev-badge{font-size:.7em;text-transform:uppercase;letter-spacing:.07em;border:1px solid currentColor;border-radius:3px;padding:.1em .45em;opacity:.8}' +
+        '.evt-ev-badge{font-size:.7em;text-transform:uppercase;letter-spacing:.07em;border:1px dashed currentColor;border-radius:3px;padding:.1em .45em;opacity:.8}' +
         '.evt-ev-more{font-size:.85em;opacity:.75;padding-top:.5em}' +
         '.evt-ev-more a{color:inherit}';
       document.head.appendChild(css);
@@ -71,16 +71,19 @@
           v.className = 'evt-ev-venue';
           v.textContent = e.venue;
           li.appendChild(d); li.appendChild(a); li.appendChild(v);
-          var tags = [];
-          if (e.age21) tags.push('21+');
-          if (e.soldOut) tags.push('sold out');
-          if (e.free) tags.push('free');
-          tags.forEach(function (t) {
+          if (e.status) { // cancelled / postponed: struck through, labelled
+            a.style.textDecoration = 'line-through';
+            var s = document.createElement('span');
+            s.className = 'evt-ev-badge';
+            s.textContent = e.status;
+            li.appendChild(s);
+          }
+          if (e.dateTbd) {
             var b = document.createElement('span');
             b.className = 'evt-ev-badge';
-            b.textContent = t;
+            b.textContent = 'date tbd';
             li.appendChild(b);
-          });
+          }
           ul.appendChild(li);
         });
         var more = document.createElement('div');
