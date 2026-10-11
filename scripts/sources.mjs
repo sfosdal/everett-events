@@ -85,6 +85,14 @@ export function parseSquarespaceEvents(data, { base, fallbackVenue = 'Everett' }
   return out;
 }
 
+// Church events are never listed (Steve, 2026-10-11: "keep church event 100%
+// not listed"): a listing whose venue or title names a church, chapel,
+// ministry, worship service, congregation, parish or cathedral is dropped at
+// every source and from the archive, before venue folding (so it cannot hide
+// in "Elsewhere in Everett"). Tested in sources.test.mjs.
+const CHURCH_RE = /\b(?:church(?:es)?|chapel|ministr(?:y|ies)|worship|congregation|parish|cathedral|tabernacle|sermon|bible stud(?:y|ies)|new life center)\b/i;
+export function isChurch(e) { return CHURCH_RE.test(e.venue || '') || CHURCH_RE.test(e.title || ''); }
+
 // Secondary sources list shows the primary ones already carry under slightly
 // different titles ("… & Lady A" vs "… + Lady A"), so exact-key de-dupe
 // misses them. A candidate is dropped when an existing event sits at the

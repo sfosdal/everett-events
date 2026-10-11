@@ -15,7 +15,7 @@
  */
 import { writeFileSync, readFileSync } from 'node:fs';
 import { buildIcs } from './ics.mjs';
-import { parsePoeMonths, parsePoeEvents, parseSquarespaceEvents, dropTimeClashes, parseNwacIcal } from './sources.mjs';
+import { parsePoeMonths, parsePoeEvents, parseSquarespaceEvents, dropTimeClashes, parseNwacIcal, isChurch } from './sources.mjs';
 import { mergeWithArchive, unionArchives } from './merge.mjs';
 import { calmTitle, isNotice } from './titles.mjs';
 import { applySchedules } from './schedules.mjs';
@@ -106,8 +106,9 @@ async function ticketmasterVenue({ venueId, venueMatch, label, fallbackUrl, excl
     .filter((e) => !exclude || !exclude.test(e.name || ''));
   return keepPrimary(rows).map((e) => tmEvent(e, label, fallbackUrl));
 }
-// everything else on sale in Everett (Funko Field's AquaSox dates, New Life
-// Church, whatever books next), the named rooms left to their own fetch
+// everything else on sale in Everett (Funko Field's AquaSox dates, whatever
+// books next), the named rooms left to their own fetch; church bookings go
+// at the drop below
 const TM_ROOM_IDS = new Set(Object.values(CITY.venues).filter((v) => v.tm).map((v) => v.tm.id));
 async function ticketmasterEverett() {
   const rows = (await tmPages({ city: 'Everett', stateCode: 'WA' }, 'Everett sweep'))
@@ -215,15 +216,22 @@ const normalizeVenue = (e) => {
   return venue === e.venue ? e : { ...e, venue };
 };
 
+// Church events never make the listing (Steve, 2026-10-11), judged on the
+// source's own venue name and title before anything folds into the
+// Elsewhere row; the count is logged so a new church booking is visible.
+let churchDropped = 0;
+const noChurch = (rows) => rows.filter((e) => { if (isChurch(e)) { churchDropped++; return false; } return true; });
+
 let all = [];
 for (const src of sources) {
-  try { all = all.concat((await src()).map(normalizeVenue)); }
+  try { all = all.concat(noChurch(await src()).map(normalizeVenue)); }
   catch (err) { console.error('Source failed:', err.message); }
 }
 for (const src of secondary) {
-  try { all = all.concat(dropTimeClashes((await src()).map(normalizeVenue), all)); }
+  try { all = all.concat(dropTimeClashes(noChurch(await src()).map(normalizeVenue), all)); }
   catch (err) { console.error('Source failed:', err.message); }
 }
+if (churchDropped) console.log(`Church events dropped: ${churchDropped}`);
 
 // window, de-dupe, sort
 const today = new Date().toISOString().slice(0, 10);
@@ -243,6 +251,7 @@ const fresh = all
 // neither. Since the union can only grow, a publish that lost history can no
 // longer shrink the record.
 const cleanArchive = (d) => (Array.isArray(d) ? d : (d.events || []))
+  .filter((e) => !isChurch(e)) // past church events (New Life Church had a row until 2026-10-11) leave the record too
   .map(normalizeVenue) // past events published under the old spellings ("The Village Theater", "Everett") fold onto the one name
   .filter((e) => !isNotice(e.title)).map((e) => ({ ...e, title: calmTitle(e.title) })); // the same title hygiene as fresh events, so the merge keys agree
 async function fetchArchive(url, what) {

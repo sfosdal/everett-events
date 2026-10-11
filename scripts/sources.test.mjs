@@ -1,6 +1,19 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { poeDate, parsePoeMonths, parsePoeEvents, parseNwacIcal } from './sources.mjs';
+import { poeDate, parsePoeMonths, parsePoeEvents, parseNwacIcal, isChurch } from './sources.mjs';
+
+test('isChurch drops church events by venue or title and nothing else', () => {
+  assert.ok(isChurch({ venue: 'New Life Church', title: 'Steven Curtis Chapman: Speechless 25th Anniversary Tour' }));
+  assert.ok(isChurch({ venue: 'New Life Center', title: 'Christmas Concert' }));
+  assert.ok(isChurch({ venue: 'Everett', title: 'Worship Night with Phil Wickham' }));
+  assert.ok(isChurch({ venue: 'Angel of the Winds Arena', title: 'Harvest Ministries Crusade' }));
+  assert.ok(isChurch({ venue: 'Our Lady of Perpetual Help Parish', title: 'Spaghetti Dinner' }));
+  assert.ok(!isChurch({ venue: 'Angel of the Winds Arena', title: 'Everett Silvertips vs Spokane Chiefs' }));
+  assert.ok(!isChurch({ venue: 'Village Theatre', title: 'Ragtime The Musical' }));
+  assert.ok(!isChurch({ venue: 'El Sid', title: 'Gospel Brunch' })); // a bar's brunch is a bar event
+  assert.ok(!isChurch({ venue: 'Funko Field', title: 'Faith & Family Night' })); // a ballpark promotion stays
+  assert.ok(isChurch({ venue: 'APEX Everett', title: 'Church of Misery' })); // a band with "church" in its name goes too: the rule errs toward dropping ("100% not listed")
+});
 
 test('poeDate parses the Port calendar date style', () => {
   assert.equal(poeDate('Aug 4, 2026'), '2026-08-04');

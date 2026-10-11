@@ -58,7 +58,8 @@ Events:
 
 - **Ticketmaster Discovery API** — Angel of the Winds Arena and APEX Everett
   by venue id (every page), plus a city=Everett sweep for everything else on
-  sale in town (Funko Field, New Life Church). Resale-only listings are kept
+  sale in town (Funko Field, whatever books next; church events are dropped
+  at every source, see `isChurch`). Resale-only listings are kept
   only when no primary one shares the date. Needs the `TICKETMASTER_API_KEY`
   repo secret (locally, an untracked `.env`).
 - **Port of Everett calendar** — the Revize CMS app's plain XML data files

@@ -155,12 +155,6 @@
       icon: 'https://www.google.com/s2/favicons?domain=villagetheatre.org&sz=128',
       alias: /village theat(?:re|er)/i,
     },
-    'New Life Church': {
-      type: 'concert',
-      cssVar: '--v-newlife',
-      color: '#c4a0f0',
-      alias: /new life (?:church|center)/i,
-    },
     'Everett Community College': {
       type: 'sports',
       cssVar: '--v-evcc',
@@ -189,7 +183,7 @@
 
   // The usual view: every room on, the two bars' weekly nights off (they
   // would crowd the list the way the SIFF showings did in Lower Queen Anne).
-  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'Port of Everett', 'Village Theatre', 'New Life Church', 'Everett Community College', 'Elsewhere in Everett'];
+  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett'];
   var DEFAULT_OFF = ['El Sid', 'Lucky Dime'];
   // the first default-off venue saved prefs had to be told about (prefs
   // record `known` from the first build of this site)
@@ -216,7 +210,7 @@
   var CODE_LENGTH = 6;
   var REGISTRY = [
     ['venue', 'Angel of the Winds Arena'], ['venue', 'Funko Field'], ['venue', 'APEX Everett'], ['venue', 'Port of Everett'],
-    ['venue', 'Village Theatre'], ['venue', 'New Life Church'], ['venue', 'Everett Community College'], ['venue', 'El Sid'], ['venue', 'Lucky Dime'],
+    ['venue', 'Village Theatre'], ['venue', 'New Life Church'] /* dead slot: the venue left 2026-10-11 (church events are never listed); kept so older codes keep their meaning */, ['venue', 'Everett Community College'], ['venue', 'El Sid'], ['venue', 'Lucky Dime'],
     ['badge', 'concert'], ['badge', 'sports'], ['badge', 'arts'], ['badge', 'community'], ['badge', 'bar'],
     ['team', 'silvertips'], ['team', 'aquasox'], ['team', 'wolfpack'], ['team', 'trojans'],
     ['cap', 'stadium'], ['cap', 'arena'], ['cap', 'hall'], ['cap', 'room'],
