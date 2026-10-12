@@ -393,11 +393,14 @@ try { ({ teams: seasons, form } = await applySchedules(merged)); } catch (err) {
 // AquaSox at Funko Field) enter the listing from the league's schedule —
 // typed sports, the club's ticket page as the link — unless the feed already
 // has that day at that ground
-for (const t of TEAMS.filter((x) => x.inject)) {
+// (city.js teams, not badges' TEAMS, which carries only slug/label/re — the
+// loop was a no-op until 2026-10-11; the game takes the club's own ground name)
+for (const t of CITY.teams.filter((x) => x.inject)) {
   for (const g of (seasons[t.slug] || []).filter((x) => x.home && x.date >= cutoff)) {
-    const listed = merged.find((e) => e.date === g.date && e.venue === g.venue);
+    const ground = t.inject.venue || t.venue || g.venue;
+    const listed = merged.find((e) => e.date === g.date && (e.venue === ground || e.venue === g.venue));
     if (listed) { if (!listed.time && g.time && !g.tbd) listed.time = g.time; continue; } // the feed's listing stands; the league's first pitch fills a time it lacks
-    merged.push({ venue: g.venue, title: `${t.inject.name || t.name || t.label} vs ${g.opp.name}`, date: g.date, time: g.time, url: t.inject.url, type: 'sports', ...(g.tbd ? { dateTbd: true } : {}), ...(g.watch ? { watch: g.watch } : {}) });
+    merged.push({ venue: ground, title: `${t.inject.name || t.name || t.label} vs ${g.opp.name}`, date: g.date, time: g.time, url: t.inject.url, type: 'sports', ...(g.tbd ? { dateTbd: true } : {}), ...(g.watch ? { watch: g.watch } : {}) });
   }
 }
 // Ticket availability for the Ticketmaster venues, from a local checker
