@@ -1,11 +1,599 @@
 {
  "events": [
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-07",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-08",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-09",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-10",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-11",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-04-12",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-21",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-22",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-23",
+   "time": "12:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-24",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-25",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-04-26",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-05",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-06",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-07",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-08",
+   "time": "12:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-09",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-05-10",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-19",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-20",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-21",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-22",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-23",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-05-24",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-02",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-03",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-04",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-05",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-06",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-06-07",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-16",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-17",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-18",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-19",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-20",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Hillsboro Hops",
+   "date": "2026-06-21",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-06-30",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-07-01",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Music at the Marina",
    "date": "2026-07-02",
    "time": "18:00:00",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-07-02",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-07-03",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-07-04",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Tri-City Dust Devils",
+   "date": "2026-07-05",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -127,11 +715,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-21",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-07-22",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-22",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -146,6 +762,20 @@
    "date": "2026-07-23",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-23",
+   "time": "12:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -176,6 +806,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-24",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-07-25",
@@ -183,11 +827,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-25",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-07-26",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-07-26",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -253,11 +925,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-04",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-05",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-05",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -281,6 +981,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-06",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Sail-In Cinema",
    "date": "2026-08-07",
@@ -309,6 +1023,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-07",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-08",
@@ -316,11 +1044,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-08",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-09",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Vancouver Canadians",
+   "date": "2026-08-09",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Everett Community College",
@@ -338,6 +1094,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-11",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-12",
@@ -352,11 +1122,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-12",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-13",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-13",
+   "time": "12:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -394,6 +1192,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-14",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-15",
@@ -401,11 +1213,39 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-15",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-16",
    "time": "",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Spokane Indians",
+   "date": "2026-08-16",
+   "time": "16:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -485,6 +1325,20 @@
    "url": "https://www.portofeverett.com/calendar.php"
   },
   {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-08-25",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
+  },
+  {
    "venue": "Port of Everett",
    "title": "Jetty Island Days",
    "date": "2026-08-26",
@@ -497,6 +1351,20 @@
    "date": "2026-08-26",
    "time": "18:00:00",
    "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "Funko Field",
+   "title": "Everett AquaSox vs Eugene Emeralds",
+   "date": "2026-08-26",
+   "time": "19:05:00",
+   "url": "https://www.milb.com/everett/tickets",
+   "type": "sports",
+   "watch": {
+    "tv": [
+     "Bally Sports Live",
+     "MiLB.TV"
+    ]
+   }
   },
   {
    "venue": "Port of Everett",
@@ -1014,6 +1882,20 @@
    "time": "19:30:00",
    "url": "https://www.ticketmaster.com/billy-strings-everett-washington-10-10-2026/event/0F00647BCC85ECC0",
    "type": "concert"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Weekend Run/Walk Club",
+   "date": "2026-10-11",
+   "time": "10:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/4552"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Exploring Borosilicate Glass Series",
+   "date": "2026-10-11",
+   "time": "14:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/exploring-borosilicate-glass-series-4"
   }
  ]
 }
