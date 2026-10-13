@@ -254,7 +254,7 @@
   // Presets: each names what's OFF in every group; `holidays` (when given)
   // sets the switch too, and the search box is left alone. Venue lists that
   // depend on the feed are functions of the venues present. `teamsOff`
-  // unchecks every team (only Nothing does; the rest leave teams checked).
+  // unchecks every team (only Hide All does; the rest leave teams checked).
   // The default view (Steve's pick, 2026-09-10) is the city's: what's on
   // and what starts unchecked (city.js). Bars aren't venues here, so
   // they're untouched. The Teams view is never filtered — every game shows.
@@ -269,8 +269,8 @@
   var PRESETS = [
     { key: 'default', label: 'Default', title: CITY.words.presetDefault,
       venuesOff: function () { return DEFAULT_VENUES_OFF.slice(); }, typesOff: ['movie'], holidays: false },
-    { key: 'all', label: 'Everything', title: 'Every venue, type and team, holidays too', venuesOff: function () { return []; }, typesOff: [], holidays: true },
-    { key: 'none', label: 'Nothing', title: 'Everything off — build your own view from scratch',
+    { key: 'all', label: 'Show All', title: 'Every venue, type and team, holidays too', venuesOff: function () { return []; }, typesOff: [], holidays: true }, // the same words as the groups' Show All · Hide All (Steve, 2026-10-12: "Everything and Nothing … is incongruous")
+    { key: 'none', label: 'Hide All', title: 'Everything off — build your own view from scratch',
       venuesOff: function () { return state.venues.slice(); }, typesOff: TYPE_LIST.map(function (t) { return t.key; }), teamsOff: true, holidays: false },
     { key: 'neighborhood', label: 'Neighborhood', title: CITY.words.presetNeighborhood,
       venuesOff: function () { return DEFAULT_VENUES_OFF.concat(state.venues.filter(function (v) { return venueArea(v) === 'town' && DEFAULT_VENUES_OFF.indexOf(v) < 0; })); }, typesOff: ['movie'] },
@@ -762,6 +762,82 @@
     if (!document.documentElement.dataset.theme) applyTheme();
   });
 
+  // ---- the way to the other cities (Steve, 2026-10-12) ----
+  // After the eyebrow, out to the title's right edge, a strip of state
+  // outlines drifting steadily left (a ticker, its ends faded): every state
+  // with a here.events city (states.js, written by scripts/state-outline.mjs
+  // --states), the home state first and the rest by distance, round and
+  // round, no arrows; still under the pointer; each state is a link to the
+  // map of every city (Steve: "a three state carousel with < > on the left
+  // on right make it rotate, but when clicked on go to here.events", "three
+  // states displayed at once", "scroll and fade not jump", "smooth slide,
+  // not jump, the state span should fit the width of the bigger text", "no
+  // arrows"). A "See All" pill before the theme pill goes
+  // there too. Without states.js (a city not yet synced) the home state
+  // stands alone, still.
+  var CITIES_URL = 'https://here.events/';
+  var DRIFT_PX_S = 6; // the strip's pace: a state every three seconds or so, slow enough to be a texture
+  function carouselStates() { // [home, then the others nearest first] by the states' centres
+    var all = typeof LQAStates !== 'undefined' ? LQAStates : null, home = CITY.state;
+    if (!all || !all[home]) return CITY.stateOutline ? [{ name: home || '', d: CITY.stateOutline }] : [];
+    var h = all[home].c, k = Math.cos(h[1] * Math.PI / 180);
+    var dist = function (n) { var c = all[n].c, dx = (c[0] - h[0]) * k, dy = c[1] - h[1]; return dx * dx + dy * dy; };
+    var others = Object.keys(all).filter(function (n) { return n !== home; }).sort(function (a, b) { return dist(a) - dist(b); });
+    return [home].concat(others).map(function (n) { return { name: n, d: all[n].d }; });
+  }
+  function mountCityLinks() {
+    var eyebrow = document.querySelector('.masthead .eyebrow'), states = carouselStates();
+    if (eyebrow && states.length) {
+      var moves = states.length > 1;
+      var box = document.createElement('span'); box.className = 'eyebrow-states' + (moves ? ' is-carousel' : '');
+      var view = document.createElement('span'); view.className = 'es-view';
+      var track = document.createElement('span'); track.className = 'es-track'; view.appendChild(track);
+      // The motion is one CSS animation on the compositor (smooth at any pace;
+      // a script moving the track a tenth of a pixel a frame looked jumpy —
+      // Steve, 2026-10-12: "still a little jumpy"): the track holds the whole
+      // cycle of states as many times over as the strip is wide plus one, and
+      // slides by exactly one cycle, so the end of the run is the start again.
+      var instant = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reps = 0;
+      function makeLink(st) {
+        var a = document.createElement('a'); a.className = 'eyebrow-state'; a.href = CITIES_URL;
+        a.title = (st.name ? st.name + ' — ' : '') + 'every city on here.events';
+        a.setAttribute('aria-label', 'See all cities on here.events' + (st.name ? ' (' + st.name + ')' : ''));
+        a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + st.d + '"/></svg>';
+        return a;
+      }
+      function fill(n) { // n copies of the cycle on the track
+        if (n === reps) return;
+        reps = n; track.innerHTML = '';
+        for (var r = 0; r < n; r++) states.forEach(function (st, i) { var a = makeLink(st); if (r > 0) { a.tabIndex = -1; a.setAttribute('aria-hidden', 'true'); } track.appendChild(a); }); // one copy for the keyboard and the reader
+      }
+      function measure() {
+        if (!moves) return fill(1);
+        var first = track.firstChild || (fill(1), track.firstChild);
+        var slot = first.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+        var cycle = slot * states.length;
+        fill(Math.ceil(view.getBoundingClientRect().width / cycle) + 1);
+        track.style.setProperty('--cycle', cycle.toFixed(2) + 'px');
+        track.style.setProperty('--cycle-s', (cycle / DRIFT_PX_S).toFixed(1) + 's');
+      }
+      box.appendChild(view); // no arrows (Steve, 2026-10-12: "no arrows"): the strip drifts (styles.css es-drift), and holds still under the pointer (CSS)
+      eyebrow.stateLink = box; eyebrow.appendChild(box);
+      measure();
+      if (moves && !instant) {
+        track.classList.add('is-drifting');
+        if (window.ResizeObserver) new ResizeObserver(function () { measure(); }).observe(view); // the strip's width follows the title's (the Teams view swaps it)
+        else window.addEventListener('resize', function () { measure(); });
+      }
+    }
+    var tools = document.querySelector('.masthead-tools'), tt = $('themeToggle');
+    if (tools && tt) {
+      var pill = document.createElement('a'); pill.className = 'chip see-all'; pill.href = CITIES_URL; pill.title = 'Every city on here.events';
+      pill.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>See All</span>';
+      tools.insertBefore(pill, tt);
+    }
+  }
+  mountCityLinks();
+
   // ---- the mini calendar: docked or floating ----
   // Wide layout (the page at its full width): docked beside the list, always
   // shown, no toggle. Narrower: never docked — beside the list it would
@@ -1106,6 +1182,7 @@
       if (!('events' in el.dataset)) el.dataset.events = el.textContent;
       var t = open ? (el.dataset.teams || el.dataset.events) : el.dataset.events;
       el.textContent = t; el.hidden = !t;
+      if (el.stateLink) el.appendChild(el.stateLink); // the state after the eyebrow rides along (mountCityLinks)
     });
     if (open) fitTeamStrip(); else fitFilterBar(); // back to the list: the bar measured its own way (a fold left from the Teams view would stick)
     $('teamsView').hidden = !open;
@@ -1771,7 +1848,7 @@
     var b = document.createElement('div'); b.className = 'tf-bug is-generic is-season-bug' + (done ? ' is-final' : '');
     b.innerHTML = '<div class="bug-top"><span class="bug-pitcher">' + esc(top) + '</span>' + (right ? '<span class="bug-pc">' + esc(right) + '</span>' : '') + '</div>' +
       '<div class="bug-grid bug-grid-2' + (done ? ' no-ev' : '') + '">' +
-      '<span class="bug-team" style="background:' + col + '">SEASON<small>every game</small></span><span class="bug-score">' + esc(s1) + '</span><span class="bug-ev">' + r1 + '</span>' + // each row says what it counts (Steve, 2026-10-05: "define season v. home")
+      '<span class="bug-team" style="--cell:' + col + '">SEASON<small>every game</small></span><span class="bug-score">' + esc(s1) + '</span><span class="bug-ev">' + r1 + '</span>' + // each row says what it counts (Steve, 2026-10-05: "define season v. home")
       '<span class="bug-team bug-team-soft">HOME<small>' + esc(team.venue && team.venue.length <= 22 ? 'at ' + team.venue : 'at home') + '</small></span><span class="bug-score">' + esc(s2) + '</span><span class="bug-ev">' + r2 + '</span></div>';
     return b;
   }
@@ -2834,7 +2911,7 @@
   function teamCell(side, team, color, extra) { // the abbreviation on the block, the nickname on the compact bar (styles.css .bug-abbr / .bug-nick); extra: markup that rides with the abbreviation (the record) and goes with it on the compact bar
     function esc(x) { return String(x).replace(/[&<>]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]; }); }
     var abbr = (side.isUs && clubAbbr(team)) || side.team.abbreviation || side.team.shortDisplayName, nick = side.isUs ? team.label : nickname(side.team); // our side as the league lists it
-    return '<span class="bug-team" style="background:' + color + '"><i class="bug-abbr">' + (extra ? '<b class="bug-ab">' + esc(abbr) + '</b><span class="bug-xtra">' + extra + '</span>' : esc(abbr)) + '</i><i class="bug-nick">' + esc(nick || abbr) + '</i></span>';
+    return '<span class="bug-team" style="--cell:' + color + '"><i class="bug-abbr">' + (extra ? '<b class="bug-ab">' + esc(abbr) + '</b><span class="bug-xtra">' + extra + '</span>' : esc(abbr)) + '</i><i class="bug-nick">' + esc(nick || abbr) + '</i></span>';
   }
   function renderTeamLive(team, ev) {
     function esc(s) { return String(s).replace(/[&<>]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]; }); }
