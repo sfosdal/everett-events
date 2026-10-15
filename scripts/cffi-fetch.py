@@ -1,17 +1,35 @@
 # /// script
-# dependencies = ["curl_cffi"]
+# requires-python = ">=3.12"
+# dependencies = ["curl_cffi>=0.7"]
 # ///
-"""Fetch one URL the way Chrome would (TLS fingerprint included) and print
-the body, for the sites whose bot wall turns Node's fetch away: the City of
-Everett's CivicPlus calendar and Songkick (the Historic Everett Theatre's
-stand-in while its own site is down). fetch-events.mjs runs it as
-`uv run scripts/cffi-fetch.py <url>` locally and `python3 scripts/cffi-fetch.py
-<url>` in Actions (after `pip install curl_cffi`), and falls back to a plain
-fetch when neither works. Exit 1 on an HTTP error so the caller knows."""
+"""Fetch pages through a browser's TLS fingerprint, for feeds.mjs.
+
+Ticketera (San Juan's ticketer, 2026-10-14) sits behind a Fastly edge rule
+that answers plain Node, curl and any "Mozilla" User-Agent with HTTP 406 or
+a "Client Challenge" page, yet serves the same URL in full to a client whose
+TLS handshake looks like Chrome's. curl_cffi impersonates that handshake, so
+this helper is the transport for the feed kinds that need it; the parsing
+stays in feeds.mjs. Run by feeds.mjs through uv (one process per batch):
+
+    uv run scripts/cffi-fetch.py <url> ...
+
+Reads nothing else, writes one JSON object to stdout — url → page text, or
+url → {"error": "..."} — and paces the calls half a second apart.
+"""
+import json
 import sys
+import time
+
 from curl_cffi import requests
 
-r = requests.get(sys.argv[1], impersonate='chrome', timeout=45)
-if r.status_code >= 400:
-    sys.stderr.write(f'HTTP {r.status_code}\n'); sys.exit(1)
-sys.stdout.buffer.write(r.content)
+out = {}
+session = requests.Session(impersonate="chrome")
+for i, url in enumerate(sys.argv[1:]):
+    if i:
+        time.sleep(0.5)
+    try:
+        r = session.get(url, timeout=30)
+        out[url] = r.text if r.status_code == 200 else {"error": f"HTTP {r.status_code}"}
+    except Exception as e:  # noqa: BLE001 — every failure is reported the same way
+        out[url] = {"error": str(e)}
+json.dump(out, sys.stdout)
