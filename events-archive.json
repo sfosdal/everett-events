@@ -2262,6 +2262,64 @@
    "date": "2026-10-15",
    "time": "20:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/9z35nk7kwt4rews-4mtkc-pgxcz-btfst-w5epk-wlbr3-dwwhy-f8adt-yzbb9-k3mp7-e6c3c-kbgdt-bbnc6-frnfn-2t67d-mspe6-f5ssj-zrwya-8lp9f-tsgze"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Teen Tabletop Gaming (Evergreen Branch)",
+   "date": "2026-10-16",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8246"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Dungeons & Dragons Drop-In (Lake Stevens)",
+   "date": "2026-10-16",
+   "time": "14:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a6b9e1af213992f00c8459b"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Time - Potion Bottles (Edmonds)",
+   "date": "2026-10-16",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a4ed4d20d65ac36003e690e"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "LEGO® in the Library (Mill Creek)",
+   "date": "2026-10-16",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/69ebfcd2fca21471b7f0419e"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Lego® Engineers (Evergreen Branch)",
+   "date": "2026-10-16",
+   "time": "15:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8272"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "DIY Paper Squishies (Marysville)",
+   "date": "2026-10-16",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a90d08c1c197d11325b59cd"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Live Music",
+   "date": "2026-10-16",
+   "time": "19:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/live-music"
+  },
+  {
+   "venue": "Tulalip Resort Casino",
+   "title": "Richard Marx",
+   "date": "2026-10-16",
+   "time": "20:00:00",
+   "url": "https://www.ticketmaster.com/richard-marx-tulalip-washington-10-16-2026/event/0F0064FD812D4832",
+   "age21": true,
+   "type": "concert"
   }
  ]
 }
