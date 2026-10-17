@@ -19,6 +19,14 @@
     if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
   } catch (e) { /* no storage — system it is */ }
 </script>
+<!-- Google tag (gtag.js) — the here.events GA4 property, one stream for the map and every city; reports split by hostname -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BTQFXS68HN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BTQFXS68HN');
+</script>
 <title>Everett Events — arena, ballpark &amp; waterfront</title>
 <meta name="description" content="What's on in Everett, WA — Angel of the Winds Arena, Funko Field, APEX Everett, and the waterfront. Calendar, iCal feed, and embeddable widget.">
 <!-- the site's own address (everett.here.events since 2026-10-10) and what a shared link shows: name and line (no share card yet — lqa's is drawn from its masthead picture, which this site hasn't got) -->
