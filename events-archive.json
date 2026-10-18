@@ -2320,6 +2320,55 @@
    "url": "https://www.ticketmaster.com/richard-marx-tulalip-washington-10-16-2026/event/0F0064FD812D4832",
    "age21": true,
    "type": "concert"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Screen Printing Workshop",
+   "date": "2026-10-17",
+   "time": "10:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/screen-printing-workshop-1"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Make it Now: Pumpkins",
+   "date": "2026-10-17",
+   "time": "11:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/4dfmx9pxwjccs8hnagtpy7p5pnzj4b"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Saturday D&D Group (Evergreen Branch)",
+   "date": "2026-10-17",
+   "time": "12:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8166"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Costume Workshop: Animal Ears (Evergreen Branch)",
+   "date": "2026-10-17",
+   "time": "12:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8183"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Intro to Lampwork Glass - Tiny Glass Pumpkins",
+   "date": "2026-10-17",
+   "time": "13:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/sje58t6b5pp6zlk7yn69gknykekrwc"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Franken Toys - Make a Monster! (Lake Stevens)",
+   "date": "2026-10-17",
+   "time": "14:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a7509109006f753531573af"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Noche de Piñatas y Loteria (Mariner)",
+   "date": "2026-10-17",
+   "time": "18:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ab40b74001a4a0e055b78b7"
   }
  ]
 }
