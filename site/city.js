@@ -140,14 +140,6 @@
       tm: { id: 'KovZ917Am28', match: 'apex', fallbackUrl: 'https://apexeverett.com/' },
       alias: /^(?!.*\bel sid\b).*(?:apex everett|kings hall)/i,
     },
-    'El Sid at the APEX': { // the El Sid Concert Series, Thursday nights in the bar's room at APEX — Stranger Tickets sells them (2026-10-19); a concert row of its own, on by default, apart from the bar's weekly nights
-      type: 'concert',
-      cssVar: '--v-elsidapex',
-      color: '#f0d27a',
-      url: 'https://www.strangertickets.com/events/venues/el-sid-at-the-apex',
-      icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
-      alias: /el sid at the apex|el sid concert series/i,
-    },
     'Port of Everett': {
       type: 'community',
       cssVar: '--v-port',
@@ -176,11 +168,13 @@
       cssVar: '--v-else',
       color: '#9fb0c0',
     },
-    'El Sid': { // the bar's own room at APEX: open mic, karaoke, blues and trivia nights (Late Shift Everett lists them)
+    'El Sid': { // the bar's own room at APEX, 1611 Everett Ave (2nd floor): open mic, karaoke, blues and trivia nights (Late Shift Everett) and the El Sid Concert Series (Stranger Tickets sells it as "El Sid at the APEX") — one room, one row, merged by that address (Steve, 2026-10-20); the concert nights keep the Concerts type the feed gives them
       type: 'bar',
       cssVar: '--v-elsid',
       color: '#e8c45a',
-      alias: /^(?!.*(?:el sid at the apex|el sid concert series)).*el sid/i,
+      url: 'https://www.strangertickets.com/events/venues/el-sid-at-the-apex',
+      icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
+      alias: /el sid/i,
     },
     'Lucky Dime': {
       type: 'bar',
@@ -303,11 +297,11 @@
     },
   };
 
-  // The usual view: every room on, the two bars' weekly nights off (they
+  // The usual view: every room on, Lucky Dime's weekly nights off (they
   // would crowd the list the way the SIFF showings did in Lower Queen Anne).
-  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'El Sid at the APEX', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett',
+  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'El Sid', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett',
     'City of Everett', 'Historic Everett Theatre', 'Tulalip Resort Casino', 'Edmonds Center for the Arts', 'City of Marysville', 'City of Mukilteo', 'City of Snohomish', 'Historic Downtown Snohomish', 'City of Mill Creek']; // the 2026-10-11 round
-  var DEFAULT_OFF = ['El Sid', 'Lucky Dime', 'Schack Art Center', 'Everett Public Library', 'Sno-Isle Libraries', 'Scuttlebutt Brewing']; // the libraries' daily programs, the Schack's class sessions and the brewery's weekly nights are there for whoever wants them (2026-10-11)
+  var DEFAULT_OFF = ['Lucky Dime', 'Schack Art Center', 'Everett Public Library', 'Sno-Isle Libraries', 'Scuttlebutt Brewing']; // the libraries' daily programs, the Schack's class sessions and the brewery's weekly nights are there for whoever wants them (2026-10-11)
   // the first default-off venue saved prefs had to be told about (prefs
   // record `known` from the first build of this site)
   var PREFS_KNOWN_FROM = 'El Sid';
@@ -341,13 +335,13 @@
     ['team', 'kraken'], ['team', 'seawolves'], ['team', 'seahawks'], ['team', 'mariners'], // appended 2026-10-11
     ['venue', 'Schack Art Center'], ['venue', 'Everett Public Library'], ['venue', 'City of Everett'], ['venue', 'Scuttlebutt Brewing'], ['venue', 'Historic Everett Theatre'], // appended 2026-10-11, the under-20-minutes round
     ['venue', 'Tulalip Resort Casino'], ['venue', 'Edmonds Center for the Arts'], ['venue', 'Sno-Isle Libraries'], ['venue', 'City of Marysville'], ['venue', 'City of Mukilteo'], ['venue', 'City of Snohomish'], ['venue', 'Historic Downtown Snohomish'], ['venue', 'City of Mill Creek'],
-    ['venue', 'El Sid at the APEX'], // appended 2026-10-19 (41 slots, still 8 digits)
+    ['venue', 'El Sid at the APEX'], // appended 2026-10-19 (41 slots, still 8 digits); dead slot since 2026-10-20 (merged into El Sid), kept so older codes keep their meaning
   ];
 
   // The words the page uses for the place
   var WORDS = {
     teamCity: 'Everett', // the board drops it from the clubs' names ("Everett Silvertips" → Silvertips)
-    presetDefault: 'Every room in town — the arena, Funko Field, APEX, the waterfront — every team and type; the bars’ weekly nights off',
+    presetDefault: 'Every room in town — the arena, Funko Field, APEX, the waterfront — every team and type; Lucky Dime’s weekly nights off',
     presetNeighborhood: 'Just Everett',
     presetBig: 'Only the places that hold 2,000 or more — the arena and the ballpark',
     phrases: { all: 'Showing everything.', none: 'Showing nothing yet — open Filter and pick some venues.', neighborhood: 'Showing the neighborhood only.', big: 'Showing the big rooms only — the arena and the ballpark.' },
