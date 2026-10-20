@@ -140,6 +140,14 @@
       tm: { id: 'KovZ917Am28', match: 'apex', fallbackUrl: 'https://apexeverett.com/' },
       alias: /^(?!.*\bel sid\b).*(?:apex everett|kings hall)/i,
     },
+    'El Sid at the APEX': { // the El Sid Concert Series, Thursday nights in the bar's room at APEX — Stranger Tickets sells them (2026-10-19); a concert row of its own, on by default, apart from the bar's weekly nights
+      type: 'concert',
+      cssVar: '--v-elsidapex',
+      color: '#f0d27a',
+      url: 'https://www.strangertickets.com/events/venues/el-sid-at-the-apex',
+      icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
+      alias: /el sid at the apex|el sid concert series/i,
+    },
     'Port of Everett': {
       type: 'community',
       cssVar: '--v-port',
@@ -172,7 +180,7 @@
       type: 'bar',
       cssVar: '--v-elsid',
       color: '#e8c45a',
-      alias: /el sid/i,
+      alias: /^(?!.*(?:el sid at the apex|el sid concert series)).*el sid/i,
     },
     'Lucky Dime': {
       type: 'bar',
@@ -297,7 +305,7 @@
 
   // The usual view: every room on, the two bars' weekly nights off (they
   // would crowd the list the way the SIFF showings did in Lower Queen Anne).
-  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett',
+  var DEFAULT_ON = ['Angel of the Winds Arena', 'Funko Field', 'APEX Everett', 'El Sid at the APEX', 'Port of Everett', 'Village Theatre', 'Everett Community College', 'Elsewhere in Everett',
     'City of Everett', 'Historic Everett Theatre', 'Tulalip Resort Casino', 'Edmonds Center for the Arts', 'City of Marysville', 'City of Mukilteo', 'City of Snohomish', 'Historic Downtown Snohomish', 'City of Mill Creek']; // the 2026-10-11 round
   var DEFAULT_OFF = ['El Sid', 'Lucky Dime', 'Schack Art Center', 'Everett Public Library', 'Sno-Isle Libraries', 'Scuttlebutt Brewing']; // the libraries' daily programs, the Schack's class sessions and the brewery's weekly nights are there for whoever wants them (2026-10-11)
   // the first default-off venue saved prefs had to be told about (prefs
@@ -333,6 +341,7 @@
     ['team', 'kraken'], ['team', 'seawolves'], ['team', 'seahawks'], ['team', 'mariners'], // appended 2026-10-11
     ['venue', 'Schack Art Center'], ['venue', 'Everett Public Library'], ['venue', 'City of Everett'], ['venue', 'Scuttlebutt Brewing'], ['venue', 'Historic Everett Theatre'], // appended 2026-10-11, the under-20-minutes round
     ['venue', 'Tulalip Resort Casino'], ['venue', 'Edmonds Center for the Arts'], ['venue', 'Sno-Isle Libraries'], ['venue', 'City of Marysville'], ['venue', 'City of Mukilteo'], ['venue', 'City of Snohomish'], ['venue', 'Historic Downtown Snohomish'], ['venue', 'City of Mill Creek'],
+    ['venue', 'El Sid at the APEX'], // appended 2026-10-19 (41 slots, still 8 digits)
   ];
 
   // The words the page uses for the place
@@ -363,6 +372,11 @@
     prefsKnownFrom: PREFS_KNOWN_FROM,
     types: TYPES,
     movieVenue: MOVIE_VENUE,
+    // city-wide listings (scripts/feeds.mjs): Stranger Tickets read by the town in its Venue cell — its
+    // city buttons file Everett under Seattle (Steve, 2026-10-19: "use the location here")
+    feeds: [
+      { kind: 'boldtype', label: 'Stranger Tickets', url: 'https://www.strangertickets.com', city: '', rooms: /\bEverett, WA\b/i, type: 'concert', drop: /season (?:tickets?|pass(?:es)?)|gift card/i },
+    ],
     groundsVenue: 'Elsewhere in Everett', // a venue with no row of its own folds here (aliases are tried first)
     codeLength: CODE_LENGTH,
     registry: REGISTRY,

@@ -21,6 +21,7 @@ import { mergeWithArchive, unionArchives, eventKey } from './merge.mjs';
 import { calmTitle, isNotice } from './titles.mjs';
 import { applySchedules } from './schedules.mjs';
 import { slugify, BADGE_FEEDS, TEAMS, CITY } from './badges.mjs';
+import { feedSources } from './feeds.mjs';
 
 const JSON_OUT = new URL('../site/events.json', import.meta.url);
 const ICS_OUT = new URL('../site/events.ics', import.meta.url);
@@ -299,7 +300,8 @@ const sources = [
 ];
 // Secondary sources re-list shows the primaries carry under other titles;
 // anything at an already-taken venue/date/time is dropped.
-const secondary = [everettMusicInitiative, lateShiftEverett, scuttlebuttBrewing];
+const secondary = [everettMusicInitiative, lateShiftEverett, scuttlebuttBrewing,
+  ...feedSources(CITY, BROWSER_UA)]; // city.js `feeds` (Stranger Tickets): behind the calendars, so a show Late Shift already lists stays theirs
 
 // Venue names as city.js spells them: a venue listed under other spellings
 // (`alias` — "Everett Memorial Stadium" is Funko Field, "Kings Hall" is at
