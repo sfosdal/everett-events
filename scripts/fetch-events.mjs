@@ -18,6 +18,7 @@ import { buildIcs } from './ics.mjs';
 import { spawnSync } from 'node:child_process';
 import { parsePoeMonths, parsePoeEvents, parseSquarespaceEvents, dropTimeClashes, parseNwacIcal, isChurch, parseCivicPlusRss, parseBiblioCommonsEvents, parseJsonLdEvents, parseMillCreekEvents, millCreekTime } from './sources.mjs';
 import { mergeWithArchive, unionArchives, eventKey } from './merge.mjs';
+import { fixLinks } from './links.mjs';
 import { calmTitle, isNotice } from './titles.mjs';
 import { applySchedules } from './schedules.mjs';
 import { slugify, BADGE_FEEDS, TEAMS, CITY } from './badges.mjs';
@@ -433,6 +434,7 @@ if (Object.keys(seasons).length) {
   console.error('teams.json: no season fetched this run, the last one stands');
 }
 
+await fixLinks(merged, { venues: CITY.venues, today }); // ticket links that reach a real page: no scheme-less or wrapped links, a 404 goes to the venue's page (scripts/links.mjs)
 writeFileSync(JSON_OUT, JSON.stringify({ generated: new Date().toISOString(), events: merged }, null, 2) + '\n');
 // the archive record: this build's past events on top of everything already
 // recorded, never pruned (the feed keeps a year; the branch keeps it all)
