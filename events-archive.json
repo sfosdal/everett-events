@@ -2728,6 +2728,81 @@
    "time": "19:00:00",
    "url": "https://nwacsports.com/sports/wvball/2026-27/boxscores/20261023_w6w0.xml",
    "type": "sports"
+  },
+  {
+   "venue": "Port of Everett",
+   "title": "Making Strides Against Breast Cancer",
+   "date": "2026-10-24",
+   "time": "09:00:00",
+   "url": "https://www.portofeverett.com/calendar.php"
+  },
+  {
+   "venue": "City of Mill Creek",
+   "title": "Kiwanis Community Shredding",
+   "date": "2026-10-24",
+   "time": "10:00:00",
+   "url": "https://millcreekwa.gov/events/kiwanis-community-shredding"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Paper Quilling: The Art of Rolled Paper",
+   "date": "2026-10-24",
+   "time": "10:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/paper-quilling-the-art-of-rolled-paper-2"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Make It Now: Pumpkins",
+   "date": "2026-10-24",
+   "time": "11:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/58625b4r36tjlcfg89xkx3d8lyh7xd"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Jewelry Making on the Torch",
+   "date": "2026-10-24",
+   "time": "12:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/jewelry-making-on-the-torch-1"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Intro to Encaustic Painting",
+   "date": "2026-10-24",
+   "time": "13:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/intro-to-encaustic-painting-2"
+  },
+  {
+   "venue": "Village Theatre",
+   "title": "RAGTIME The Musical at The Village Theatre",
+   "date": "2026-10-24",
+   "time": "16:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/ragtime-the-musical-at-the-village-theatre"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "EnduroCross",
+   "date": "2026-10-24",
+   "time": "19:00:00",
+   "url": "https://www.ticketmaster.com/endurocross-everett-washington-10-24-2026/event/0F0064F0CAA3BD32",
+   "type": "sports"
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "All City Fight Night - Fury",
+   "date": "2026-10-24",
+   "time": "19:00:00",
+   "url": "https://www.ticketmaster.com/all-city-fight-night-fury-everett-washington-10-24-2026/event/0F00650ABCA2B39A",
+   "type": "sports",
+   "status": "cancelled",
+   "statusSince": "2026-10-13T21:20:13.364Z"
+  },
+  {
+   "venue": "Edmonds Center for the Arts",
+   "title": "Yesterday & Today: The Interactive Beatles Experience",
+   "date": "2026-10-24",
+   "time": "20:00:00",
+   "url": "https://edmondscenterforthearts.org/",
+   "type": "concert"
   }
  ]
 }
