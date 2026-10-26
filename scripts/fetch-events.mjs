@@ -23,6 +23,7 @@ import { calmTitle, isNotice } from './titles.mjs';
 import { applySchedules } from './schedules.mjs';
 import { slugify, BADGE_FEEDS, TEAMS, CITY } from './badges.mjs';
 import { feedSources } from './feeds.mjs';
+import { tmFetch } from './tm-fetch.mjs';
 
 const JSON_OUT = new URL('../site/events.json', import.meta.url);
 const ICS_OUT = new URL('../site/events.ics', import.meta.url);
@@ -93,7 +94,7 @@ async function tmPages(params, label) {
   const all = [];
   for (let page = 0; page < 5; page++) {
     const q = new URLSearchParams({ apikey: key, sort: 'date,asc', size: '200', page: String(page), ...params });
-    const res = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?${q}`);
+    const res = await tmFetch(`https://app.ticketmaster.com/discovery/v2/events.json?${q}`);
     if (!res.ok) { console.error(`Ticketmaster ${label} page ${page} HTTP ${res.status}`); break; }
     const data = await res.json();
     all.push(...(data?._embedded?.events || []));
