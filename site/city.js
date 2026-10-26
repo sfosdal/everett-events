@@ -112,6 +112,7 @@
   // so the panel's Around Town and Festivals groups fold away (app.js).
   var VENUES = {
     'Angel of the Winds Arena': {
+      geo: [47.9786, -122.20302],
       capacity: 10000,
       type: 'concert',
       cssVar: '--v-aotw',
@@ -122,6 +123,7 @@
       alias: /angel of the winds/i,
     },
     'Funko Field': {
+      geo: [47.9669, -122.20256],
       capacity: 3682,
       type: 'sports',
       cssVar: '--v-funko',
@@ -131,6 +133,7 @@
       alias: /funko field|everett memorial stadium/i,
     },
     'APEX Everett': {
+      geo: [47.98205, -122.20826],
       capacity: 700,
       type: 'concert',
       cssVar: '--v-apex',
@@ -141,6 +144,7 @@
       alias: /^(?!.*\bel sid\b).*(?:apex everett|kings hall)/i,
     },
     'Port of Everett': {
+      geo: [48.00142, -122.217],
       type: 'community',
       cssVar: '--v-port',
       color: '#5fb3a1',
@@ -148,6 +152,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.portofeverett.com&sz=128',
     },
     'Village Theatre': {
+      geo: [47.98154, -122.20759],
       capacity: 514,
       type: 'arts',
       cssVar: '--v-village',
@@ -157,6 +162,7 @@
       alias: /village theat(?:re|er)/i,
     },
     'Everett Community College': {
+      geo: [48.00545, -122.19933],
       type: 'sports',
       cssVar: '--v-evcc',
       color: '#f08a8a',
@@ -164,11 +170,13 @@
       icon: 'https://www.google.com/s2/favicons?domain=athletics.everettcc.edu&sz=128',
     },
     'Elsewhere in Everett': { // every room the feeds name that has no row of its own (a cafe show on EMI, a one-off hall in the Ticketmaster sweep) folds here — one row, not one per room (Steve, 2026-10-10)
+      geo: [47.97815, -122.20763],
       type: 'concert', // the feeds that name such rooms are the music calendars
       cssVar: '--v-else',
       color: '#9fb0c0',
     },
     'El Sid': { // the bar's own room at APEX, 1611 Everett Ave (2nd floor): open mic, karaoke, blues and trivia nights (Late Shift Everett) and the El Sid Concert Series (Stranger Tickets sells it as "El Sid at the APEX") — one room, one row, merged by that address (Steve, 2026-10-20); the concert nights keep the Concerts type the feed gives them
+      geo: [47.98205, -122.20826],
       type: 'bar',
       cssVar: '--v-elsid',
       color: '#e8c45a',
@@ -177,6 +185,7 @@
       alias: /el sid/i,
     },
     'Lucky Dime': {
+      geo: [47.97912, -122.20757],
       type: 'bar',
       cssVar: '--v-dime',
       color: '#e8a35a',
@@ -187,6 +196,7 @@
     //     the Scuttlebutt's weekly nights are default-off (they would crowd
     //     the list the way the bars' nights would). ---
     'Schack Art Center': {
+      geo: [47.97861, -122.20967],
       type: 'community',
       cssVar: '--v-schack',
       color: '#e8b36a',
@@ -195,6 +205,7 @@
       alias: /schack/i,
     },
     'Everett Public Library': {
+      geo: [47.98167, -122.21067],
       type: 'community',
       cssVar: '--v-epls',
       color: '#8fb9f0',
@@ -203,6 +214,7 @@
       alias: /everett public library|\bepls\b/i,
     },
     'City of Everett': {
+      geo: [47.97815, -122.20763],
       type: 'community',
       cssVar: '--v-city',
       color: '#7fcfa0',
@@ -210,6 +222,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.everettwa.gov&sz=128',
     },
     'Scuttlebutt Brewing': {
+      geo: [48.00077, -122.21735],
       type: 'bar',
       cssVar: '--v-scuttle',
       color: '#e8a35a',
@@ -218,6 +231,7 @@
       alias: /scuttlebutt/i,
     },
     'Historic Everett Theatre': {
+      geo: [47.97876, -122.20837],
       capacity: 800,
       type: 'concert',
       cssVar: '--v-het',
@@ -226,6 +240,7 @@
       alias: /historic everett theat/i,
     },
     'Tulalip Resort Casino': {
+      geo: [48.08816, -122.19004],
       area: 'town',
       type: 'concert',
       cssVar: '--v-tulalip',
@@ -236,6 +251,7 @@
       alias: /tulalip (?:resort|amphitheat|casino)/i,
     },
     'Edmonds Center for the Arts': {
+      geo: [47.81426, -122.37575],
       area: 'town',
       capacity: 700,
       type: 'arts',
@@ -247,6 +263,7 @@
       alias: /edmonds center for the arts/i,
     },
     'Sno-Isle Libraries': {
+      geo: [48.06356, -122.14779],
       area: 'town',
       type: 'community',
       cssVar: '--v-snoisle',
@@ -256,6 +273,7 @@
       alias: /sno-isle/i,
     },
     'City of Marysville': {
+      geo: [48.05412, -122.1792],
       area: 'town',
       type: 'community',
       cssVar: '--v-marysville',
@@ -264,6 +282,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.marysvillewa.gov&sz=128',
     },
     'City of Mukilteo': {
+      geo: [47.88904, -122.28887],
       area: 'town',
       type: 'community',
       cssVar: '--v-mukilteo',
@@ -272,6 +291,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.mukilteowa.gov&sz=128',
     },
     'City of Snohomish': {
+      geo: [47.91215, -122.09353],
       area: 'town',
       type: 'community',
       cssVar: '--v-snohomish',
@@ -280,6 +300,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.snohomishwa.gov&sz=128',
     },
     'Historic Downtown Snohomish': {
+      geo: [47.9122, -122.0968],
       area: 'town',
       type: 'community',
       cssVar: '--v-hds',
@@ -288,6 +309,7 @@
       icon: 'https://www.google.com/s2/favicons?domain=www.historicdowntownsnohomish.org&sz=128',
     },
     'City of Mill Creek': {
+      geo: [47.855, -122.22199],
       area: 'town',
       type: 'community',
       cssVar: '--v-millcreek',
@@ -360,6 +382,27 @@
     ics: { name: 'Everett Events', short: 'Everett Events', teams: 'Everett home teams — every season', prodid: '-//fosdal.net//everett-events//EN', uidDomain: 'fosdal.net',
       desc: 'Upcoming events around Everett\\, WA — Angel of the Winds Arena\\, Funko Field\\, APEX Everett\\, the waterfront' },
     teams: TEAMS,
+    map: { // the Map view (local-map.js; the ground drawn once by scripts/build-local-map.mjs from OpenStreetMap, committed as site/local-map.json) — Steve, 2026-10-25
+      kind: 'urban',
+      bbox: [47.78, -122.45, 48.12, -122.02], // south, west, north, east — Everett and its neighbours — Edmonds at the foot, Tulalip and Lake Stevens at the top
+      home: [47.955, -122.235, 48.015, -122.17], // the view at first; the fit button shows the whole frame
+      roads: ['motorway', 'trunk', 'primary'],
+      tolerance: 0.6,
+      labels: [
+        { name: 'Everett', lat: 47.9793, lon: -122.2127, anchor: 'end' },
+        { name: 'Marysville', lat: 48.0517, lon: -122.1768, anchor: 'start' },
+        { name: 'Tulalip', lat: 48.0656, lon: -122.2869, anchor: 'end' },
+        { name: 'Mukilteo', lat: 47.9474, lon: -122.3037, anchor: 'end' },
+        { name: 'Edmonds', lat: 47.8106, lon: -122.3775, anchor: 'end' },
+        { name: 'Snohomish', lat: 47.9129, lon: -122.0982, anchor: 'start' },
+        { name: 'Mill Creek', lat: 47.8577, lon: -122.2211, anchor: 'start' },
+        { name: 'Lynnwood', lat: 47.8279, lon: -122.3054, anchor: 'start' },
+        { name: 'Lake Stevens', lat: 48.0198, lon: -122.0661, anchor: 'start' },
+        { name: 'Port Gardner Bay', lat: 47.995, lon: -122.245, kind: 'water', anchor: 'middle' },
+        { name: 'Possession Sound', lat: 47.925, lon: -122.31, kind: 'water', anchor: 'middle' },
+        { name: 'Snohomish River', lat: 48.03, lon: -122.17, kind: 'water', anchor: 'middle' },
+      ],
+    },
     venues: VENUES,
     defaultOn: DEFAULT_ON,
     defaultOff: DEFAULT_OFF,
