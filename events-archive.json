@@ -2803,6 +2803,41 @@
    "time": "20:00:00",
    "url": "https://edmondscenterforthearts.org/",
    "type": "concert"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Weekend Run/Walk Club",
+   "date": "2026-10-25",
+   "time": "10:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/4554"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Luminous Layers: Exploring Transparency & Composition with Encaustic & Collage",
+   "date": "2026-10-25",
+   "time": "13:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/luminous-layers-exploring-transparency-composition-with-encaustic-collage"
+  },
+  {
+   "venue": "City of Mukilteo",
+   "title": "Boo Bash",
+   "date": "2026-10-25",
+   "time": "14:00:00",
+   "url": "https://www.mukilteowa.gov/Calendar.aspx?EID=1050"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Angel's Rockin' Paint And Create",
+   "date": "2026-10-25",
+   "time": "16:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/angels-rockin-paint-and-create-2wx7y"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Foundations of Drawing",
+   "date": "2026-10-25",
+   "time": "18:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/foundations-of-drawing-1"
   }
  ]
 }
