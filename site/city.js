@@ -363,10 +363,10 @@
   // The words the page uses for the place
   var WORDS = {
     teamCity: 'Everett', // the board drops it from the clubs' names ("Everett Silvertips" → Silvertips)
-    presetDefault: 'Every room in town — the arena, Funko Field, APEX, the waterfront — every team and type; Lucky Dime’s weekly nights off',
+    presetDefault: 'Every venue in town — the arena, Funko Field, APEX, the waterfront — every team and type; Lucky Dime’s weekly nights off',
     presetNeighborhood: 'Just Everett',
     presetBig: 'Only the places that hold 2,000 or more — the arena and the ballpark',
-    phrases: { all: 'Showing everything.', none: 'Showing nothing yet — open Filter and pick some venues.', neighborhood: 'Showing the neighborhood only.', big: 'Showing the big rooms only — the arena and the ballpark.' },
+    phrases: { all: 'Showing everything.', none: 'Showing nothing yet — open Filter and pick some venues.', neighborhood: 'Showing the neighborhood only.', big: 'Showing the big venues only — the arena and the ballpark.' },
   };
 
   global.LQACity = {
