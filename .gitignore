@@ -13,3 +13,4 @@ site/marks/opp/
 events-archive.json
 # the OpenStreetMap read-through scripts/build-local-map.mjs caches (the output, site/local-map.json, is committed)
 .cache/
+failures.json

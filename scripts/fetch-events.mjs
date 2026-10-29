@@ -13,6 +13,7 @@
  * Football One's DigitalShift host. The Port of Everett, Everett Music
  * Initiative, Late Shift Everett and NWAC calendars need no key either.
  */
+import './failures.mjs'; // first: every outside call retried, the ones still failing written to failures.json (Steve, 2026-10-29)
 import { writeFileSync, readFileSync } from 'node:fs';
 import { buildIcs } from './ics.mjs';
 import { spawnSync } from 'node:child_process';
