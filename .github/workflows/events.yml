@@ -60,6 +60,7 @@ jobs:
       - name: Fetch & aggregate events
         env:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # reads the festival answers in sfosdal/lqa-events' issues (scripts/festivals.mjs)
         run: node scripts/fetch-events.mjs
       - name: Sitemap, robots.txt and event structured data
         run: node scripts/seo.mjs
