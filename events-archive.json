@@ -3202,6 +3202,87 @@
    "time": "21:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/reggaeton-y-2000s-halloween",
    "type": "concert"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Disney On Ice presents Jump In!",
+   "date": "2026-10-31",
+   "time": "10:30:00",
+   "url": "https://www.ticketmaster.com/disney-on-ice-presents-jump-in-everett-washington-10-31-2026/event/0F0064F5941E80CE"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Make It Now: Pumpkins",
+   "date": "2026-10-31",
+   "time": "11:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/9kbrm4snb9d3t7bpmhfbgj2zhm2e3g"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Saturday D&D Group (Evergreen Branch)",
+   "date": "2026-10-31",
+   "time": "12:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8308"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Teen Hallowe'en Karaoke and Dance",
+   "date": "2026-10-31",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8278"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Disney On Ice presents Jump In!",
+   "date": "2026-10-31",
+   "time": "14:30:00",
+   "url": "https://www.ticketmaster.com/disney-on-ice-presents-jump-in-everett-washington-10-31-2026/event/0F0064F5942280D7"
+  },
+  {
+   "venue": "Historic Downtown Snohomish",
+   "title": "First Street Trick or Treat",
+   "date": "2026-10-31",
+   "time": "15:00:00",
+   "url": ""
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Halloween Storytime with Mady (Edmonds)",
+   "date": "2026-10-31",
+   "time": "16:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a3c22ba0e851028002cec11"
+  },
+  {
+   "venue": "City of Mill Creek",
+   "title": "Trunk-or-Treat on Main",
+   "date": "2026-10-31",
+   "time": "18:00:00",
+   "url": "https://millcreekwa.gov/events/trunk-or-treat-main"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Halloween Party",
+   "date": "2026-10-31",
+   "time": "18:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/halloween-party",
+   "type": "bar"
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "Halloween Dance Party - 90's R&B & Hip Hop",
+   "date": "2026-10-31",
+   "time": "20:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/halloween-dance-party-90s-rb-hip-hop",
+   "type": "concert"
+  },
+  {
+   "venue": "Tulalip Resort Casino",
+   "title": "La Raza After Dark The Ultimate Halloween Baile",
+   "date": "2026-10-31",
+   "time": "20:30:00",
+   "url": "https://www.ticketmaster.com/la-raza-after-dark-the-ultimate-tulalip-washington-10-31-2026/event/0F00653982A04C17",
+   "age21": true,
+   "type": "arts"
   }
  ]
 }
