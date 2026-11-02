@@ -3283,6 +3283,48 @@
    "url": "https://www.ticketmaster.com/la-raza-after-dark-the-ultimate-tulalip-washington-10-31-2026/event/0F00653982A04C17",
    "age21": true,
    "type": "arts"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Disney On Ice presents Jump In!",
+   "date": "2026-11-01",
+   "time": "11:00:00",
+   "url": "https://www.ticketmaster.com/disney-on-ice-presents-jump-in-everett-washington-11-01-2026/event/0F0064F5942880E6"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Lapidary Open Studio",
+   "date": "2026-11-01",
+   "time": "13:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/lapidary-open-studio"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Drawing People and Portraits",
+   "date": "2026-11-01",
+   "time": "13:30:00",
+   "url": "https://www.schack.org/classes-workshops-events/drawing-people-and-portraits-2"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Disney On Ice presents Jump In!",
+   "date": "2026-11-01",
+   "time": "15:00:00",
+   "url": "https://www.ticketmaster.com/disney-on-ice-presents-jump-in-everett-washington-11-01-2026/event/0F0064F5942B80EA"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Travel and Nature Sketching with Pencil, Pen and Watercolors",
+   "date": "2026-11-01",
+   "time": "16:30:00",
+   "url": "https://www.schack.org/classes-workshops-events/travel-and-nature-sketching-with-pencil-pen-and-watercolors-2"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Disney On Ice presents Jump In!",
+   "date": "2026-11-01",
+   "time": "18:30:00",
+   "url": "https://www.ticketmaster.com/disney-on-ice-presents-jump-in-everett-washington-11-01-2026/event/0F0064F590AF7A02"
   }
  ]
 }
