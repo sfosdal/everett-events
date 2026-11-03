@@ -384,6 +384,7 @@
     teams: TEAMS,
     map: { // the Map view (local-map.js; the ground drawn once by scripts/build-local-map.mjs from OpenStreetMap, committed as site/local-map.json) — Steve, 2026-10-25
       kind: 'urban',
+      boundary: { osm: 237659 }, // the city line, always drawn (Steve, 2026-11-02): OpenStreetMap's boundary relation for Everett
       bbox: [47.78, -122.45, 48.12, -122.02], // south, west, north, east — Everett and its neighbours — Edmonds at the foot, Tulalip and Lake Stevens at the top
       home: [47.955, -122.235, 48.015, -122.17], // the view at first; the fit button shows the whole frame
       roads: ['motorway', 'trunk', 'primary'],
