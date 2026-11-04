@@ -182,6 +182,7 @@
       color: '#e8c45a',
       url: 'https://www.strangertickets.com/events/venues/el-sid-at-the-apex',
       icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
+      feed: { kind: 'dice', secondary: true, url: 'https://dice.fm/venue/16920' }, // the shows El Sid sells on DICE, behind the Stranger Tickets / Late Shift listings (2026-11-03)
       alias: /el sid/i,
     },
     'Lucky Dime': {
