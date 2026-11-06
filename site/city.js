@@ -138,9 +138,9 @@
       type: 'concert',
       cssVar: '--v-apex',
       color: '#b58cf2',
-      url: 'https://apexeverett.com/',
-      icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
-      tm: { id: 'KovZ917Am28', match: 'apex', fallbackUrl: 'https://apexeverett.com/' },
+      url: 'https://www.apexeverett.com/calendar',
+      icon: 'https://www.google.com/s2/favicons?domain=www.apexeverett.com&sz=128',
+      tm: { id: 'KovZ917Am28', match: 'apex', fallbackUrl: 'https://www.apexeverett.com/calendar' },
       alias: /^(?!.*\bel sid\b).*(?:apex everett|kings hall)/i,
     },
     'Port of Everett': {
@@ -180,7 +180,7 @@
       type: 'bar',
       cssVar: '--v-elsid',
       color: '#e8c45a',
-      url: 'https://www.strangertickets.com/events/venues/el-sid-at-the-apex',
+      url: 'https://www.apexeverett.com/el-sid',
       icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
       feed: { kind: 'dice', secondary: true, url: 'https://dice.fm/venue/16920' }, // the shows El Sid sells on DICE, behind the Stranger Tickets / Late Shift listings (2026-11-03)
       alias: /el sid/i,
