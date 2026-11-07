@@ -118,7 +118,7 @@
       cssVar: '--v-aotw',
       color: '#6aa9f0',
       url: 'https://www.angelofthewindsarena.com/events',
-      icon: 'https://www.google.com/s2/favicons?domain=angelofthewindsarena.com&sz=128',
+      icon: 'marks/venues/angelofthewindsarena.com.png',
       tm: { id: 'KovZ917AhRn', match: 'angel of the winds', fallbackUrl: 'https://www.angelofthewindsarena.com/events', exclude: /parking/i },
       alias: /angel of the winds/i,
     },
@@ -129,7 +129,7 @@
       cssVar: '--v-funko',
       color: '#5fcbd6',
       url: 'https://www.milb.com/everett/schedule',
-      icon: 'https://www.google.com/s2/favicons?domain=www.milb.com&sz=128',
+      icon: 'marks/venues/milb.com.png',
       alias: /funko field|everett memorial stadium/i,
     },
     'APEX Everett': {
@@ -139,7 +139,7 @@
       cssVar: '--v-apex',
       color: '#b58cf2',
       url: 'https://www.apexeverett.com/calendar',
-      icon: 'https://www.google.com/s2/favicons?domain=www.apexeverett.com&sz=128',
+      icon: 'marks/venues/apexeverett.com.png',
       tm: { id: 'KovZ917Am28', match: 'apex', fallbackUrl: 'https://www.apexeverett.com/calendar' },
       alias: /^(?!.*\bel sid\b).*(?:apex everett|kings hall)/i,
     },
@@ -149,7 +149,7 @@
       cssVar: '--v-port',
       color: '#5fb3a1',
       url: 'https://www.portofeverett.com/calendar.php',
-      icon: 'https://www.google.com/s2/favicons?domain=www.portofeverett.com&sz=128',
+      icon: 'marks/venues/portofeverett.com.png',
     },
     'Village Theatre': {
       geo: [47.98154, -122.20759],
@@ -158,7 +158,7 @@
       cssVar: '--v-village',
       color: '#f0827a',
       url: 'https://villagetheatre.org/mainstage/plan-your-visit/everett/',
-      icon: 'https://www.google.com/s2/favicons?domain=villagetheatre.org&sz=128',
+      icon: 'marks/venues/villagetheatre.org.png',
       alias: /village theat(?:re|er)/i,
     },
     'Everett Community College': {
@@ -167,7 +167,7 @@
       cssVar: '--v-evcc',
       color: '#f08a8a',
       url: 'https://athletics.everettcc.edu/',
-      icon: 'https://www.google.com/s2/favicons?domain=athletics.everettcc.edu&sz=128',
+      icon: 'marks/venues/athletics.everettcc.edu.png',
     },
     'Elsewhere in Everett': { // every room the feeds name that has no row of its own (a cafe show on EMI, a one-off hall in the Ticketmaster sweep) folds here — one row, not one per room (Steve, 2026-10-10)
       geo: [47.97815, -122.20763],
@@ -181,7 +181,7 @@
       cssVar: '--v-elsid',
       color: '#e8c45a',
       url: 'https://www.apexeverett.com/el-sid',
-      icon: 'https://www.google.com/s2/favicons?domain=apexeverett.com&sz=128',
+      icon: 'marks/venues/apexeverett.com.png',
       feed: { kind: 'dice', secondary: true, url: 'https://dice.fm/venue/16920' }, // the shows El Sid sells on DICE, behind the Stranger Tickets / Late Shift listings (2026-11-03)
       alias: /el sid/i,
     },
@@ -202,7 +202,7 @@
       cssVar: '--v-schack',
       color: '#e8b36a',
       url: 'https://www.schack.org/classes-workshops-events',
-      icon: 'https://www.google.com/s2/favicons?domain=www.schack.org&sz=128',
+      icon: 'marks/venues/schack.org.png',
       alias: /schack/i,
     },
     'Everett Public Library': {
@@ -211,7 +211,7 @@
       cssVar: '--v-epls',
       color: '#8fb9f0',
       url: 'https://www.epls.org/Calendar.aspx',
-      icon: 'https://www.google.com/s2/favicons?domain=www.epls.org&sz=128',
+      icon: 'marks/venues/epls.org.jpg',
       alias: /everett public library|\bepls\b/i,
     },
     'City of Everett': {
@@ -220,7 +220,7 @@
       cssVar: '--v-city',
       color: '#7fcfa0',
       url: 'https://www.everettwa.gov/calendar.aspx',
-      icon: 'https://www.google.com/s2/favicons?domain=www.everettwa.gov&sz=128',
+      icon: 'marks/venues/everettwa.gov.png',
     },
     'Scuttlebutt Brewing': {
       geo: [48.00077, -122.21735],
@@ -228,7 +228,7 @@
       cssVar: '--v-scuttle',
       color: '#e8a35a',
       url: 'https://www.scuttlebuttbrewing.com/events',
-      icon: 'https://www.google.com/s2/favicons?domain=www.scuttlebuttbrewing.com&sz=128',
+      icon: 'marks/venues/scuttlebuttbrewing.com.png',
       alias: /scuttlebutt/i,
     },
     'Historic Everett Theatre': {
@@ -247,7 +247,7 @@
       cssVar: '--v-tulalip',
       color: '#d9a05b',
       url: 'https://www.everythingtulalip.com/entertainment/calendar/',
-      icon: 'https://www.google.com/s2/favicons?domain=www.everythingtulalip.com&sz=128',
+      icon: 'marks/venues/everythingtulalip.com.png',
       tm: { id: 'KovZpa3pFe', match: 'tulalip', fallbackUrl: 'https://www.everythingtulalip.com/entertainment/calendar/' },
       alias: /tulalip (?:resort|amphitheat|casino)/i,
     },
@@ -259,7 +259,7 @@
       cssVar: '--v-eca',
       color: '#c8a0f0',
       url: 'https://www.edmondscenterforthearts.org/events/',
-      icon: 'https://www.google.com/s2/favicons?domain=www.edmondscenterforthearts.org&sz=128',
+      icon: 'marks/venues/edmondscenterforthearts.org.png',
       tm: { id: 'KovZpZAFF7IA', match: 'edmonds center', fallbackUrl: 'https://www.edmondscenterforthearts.org/events/' },
       alias: /edmonds center for the arts/i,
     },
@@ -270,7 +270,7 @@
       cssVar: '--v-snoisle',
       color: '#9fd0e8',
       url: 'https://sno-isle.bibliocommons.com/v2/events',
-      icon: 'https://www.google.com/s2/favicons?domain=www.sno-isle.org&sz=128',
+      icon: 'marks/venues/sno-isle.org.png',
       alias: /sno-isle/i,
     },
     'City of Marysville': {
@@ -280,7 +280,7 @@
       cssVar: '--v-marysville',
       color: '#f0b0a0',
       url: 'https://www.marysvillewa.gov/calendar.aspx',
-      icon: 'https://www.google.com/s2/favicons?domain=www.marysvillewa.gov&sz=128',
+      icon: 'marks/venues/marysvillewa.gov.png',
     },
     'City of Mukilteo': {
       geo: [47.88904, -122.28887],
@@ -289,7 +289,7 @@
       cssVar: '--v-mukilteo',
       color: '#a0d8d0',
       url: 'https://www.mukilteowa.gov/calendar.aspx',
-      icon: 'https://www.google.com/s2/favicons?domain=www.mukilteowa.gov&sz=128',
+      icon: 'marks/venues/mukilteowa.gov.png',
     },
     'City of Snohomish': {
       geo: [47.91215, -122.09353],
@@ -298,7 +298,7 @@
       cssVar: '--v-snohomish',
       color: '#d8c8a0',
       url: 'https://www.snohomishwa.gov/calendar.aspx',
-      icon: 'https://www.google.com/s2/favicons?domain=www.snohomishwa.gov&sz=128',
+      icon: 'marks/venues/snohomishwa.gov.png',
     },
     'Historic Downtown Snohomish': {
       geo: [47.9122, -122.0968],
@@ -307,7 +307,7 @@
       cssVar: '--v-hds',
       color: '#e8c0d8',
       url: 'https://www.historicdowntownsnohomish.org/calendar',
-      icon: 'https://www.google.com/s2/favicons?domain=www.historicdowntownsnohomish.org&sz=128',
+      icon: 'marks/venues/historicdowntownsnohomish.org.png',
     },
     'City of Mill Creek': {
       geo: [47.855, -122.22199],
@@ -316,7 +316,7 @@
       cssVar: '--v-millcreek',
       color: '#b0d8a0',
       url: 'https://millcreekwa.gov/events',
-      icon: 'https://www.google.com/s2/favicons?domain=millcreekwa.gov&sz=128',
+      icon: 'marks/venues/millcreekwa.gov.png',
     },
   };
 
