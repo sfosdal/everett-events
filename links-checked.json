@@ -1,6 +1,5 @@
 {
  "links": {
-  "https://apexeverett.com/": "2026-11-05",
   "https://millcreekwa.gov/events": "2026-11-05",
   "https://millcreekwa.gov/events/annexation-town-hall": "2026-11-05",
   "https://millcreekwa.gov/events/city-chat-winter": "2026-11-05",
@@ -232,7 +231,6 @@
   "https://sno-isle.bibliocommons.com/events/6a5c1eb4fa641fe01af3f209": "2026-11-05",
   "https://sno-isle.bibliocommons.com/events/6a5c1ebd2312f32136d73797": "2026-11-05",
   "https://sno-isle.bibliocommons.com/events/6a5c1ecec44ff5b82cf600df": "2026-11-05",
-  "https://sno-isle.bibliocommons.com/events/6a5e844fc7e02e3d006a78bf": "2026-11-05",
   "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8cd": "2026-11-05",
   "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8ce": "2026-11-05",
   "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8cf": "2026-11-05",
@@ -901,6 +899,8 @@
   "https://sno-isle.bibliocommons.com/v2/events": "2026-11-05",
   "https://villagetheatre.org/mainstage/plan-your-visit/everett/": "2026-11-05",
   "https://www.angelofthewindsarena.com/events": "2026-11-05",
+  "https://www.apexeverett.com/calendar": "2026-11-07",
+  "https://www.apexeverett.com/el-sid": "2026-11-07",
   "https://www.epls.org/Calendar.aspx": "2026-11-05",
   "https://www.epls.org/Calendar.aspx?EID=7664": "2026-11-05",
   "https://www.epls.org/Calendar.aspx?EID=7789": "2026-11-05",
@@ -1199,5 +1199,31 @@
   "https://www.snohomishwa.gov/m/calendar/event/detail/5312": "2026-11-05",
   "https://www.snohomishwa.gov/m/calendar/event/detail/5327": "2026-11-05",
   "https://www.snohomishwa.gov/m/calendar/event/detail/5331": "2026-11-07"
+ },
+ "guard": {
+  "https://everettsilvertips.com/schedule": "2026-11-07",
+  "https://millcreekwa.gov/events": "2026-11-07",
+  "https://sno-isle.bibliocommons.com/v2/events": "2026-11-07",
+  "https://villagetheatre.org/mainstage/plan-your-visit/everett/": "2026-11-07",
+  "https://www.angelofthewindsarena.com/events": "2026-11-07",
+  "https://www.apexeverett.com/calendar": "2026-11-07",
+  "https://www.apexeverett.com/el-sid": "2026-11-07",
+  "https://www.edmondscenterforthearts.org/events/": "2026-11-07",
+  "https://www.epls.org/Calendar.aspx": "2026-11-07",
+  "https://www.everettmusicinitiative.com/": "2026-11-07",
+  "https://www.everythingtulalip.com/entertainment/calendar/": "2026-11-07",
+  "https://www.historicdowntownsnohomish.org/calendar": "2026-11-07",
+  "https://www.lateshifteverett.com/": "2026-11-07",
+  "https://www.marysvillewa.gov/calendar.aspx": "2026-11-07",
+  "https://www.mukilteowa.gov/calendar.aspx": "2026-11-07",
+  "https://www.nhl.com/kraken/schedule": "2026-11-07",
+  "https://www.portofeverett.com/calendar.php": "2026-11-07",
+  "https://www.schack.org/classes-workshops-events": "2026-11-07",
+  "https://www.scuttlebuttbrewing.com/events": "2026-11-07",
+  "https://www.seahawks.com/schedule/": "2026-11-07",
+  "https://www.seawolves.rugby/schedule": "2026-11-07",
+  "https://www.snohomishwa.gov/calendar.aspx": "2026-11-07",
+  "https://www.songkick.com/venues/823286-historic-everett-theatre": "2026-11-07",
+  "https://www.washingtonwolfpack.com/stats#/1999/team-schedule?team_id=584641": "2026-11-07"
  }
 }
