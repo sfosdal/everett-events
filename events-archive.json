@@ -3661,6 +3661,101 @@
    "date": "2026-11-05",
    "time": "18:30:00",
    "url": "https://www.everettwa.gov/Calendar.aspx?EID=7806"
+  },
+  {
+   "venue": "Historic Downtown Snohomish",
+   "title": "Window Display Contest 2026",
+   "date": "2026-11-06",
+   "time": "10:00:00",
+   "url": ""
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Friday Hangout (Mukilteo)",
+   "date": "2026-11-06",
+   "time": "13:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8cc"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Teen Tabletop Gaming (Evergreen Branch)",
+   "date": "2026-11-06",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8279"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Dungeons & Dragons Drop-In (Lake Stevens)",
+   "date": "2026-11-06",
+   "time": "14:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ad7b103fee2d21deb2494bc"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Time - Faux Stained-Glass (Edmonds)",
+   "date": "2026-11-06",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a4ee3f6cca66c2f00a22d46"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "LEGO® in the Library (Mill Creek)",
+   "date": "2026-11-06",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/69ebfcd2fca21471b7f0419f"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Lego® Engineers (Evergreen Branch)",
+   "date": "2026-11-06",
+   "time": "15:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8270"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Fantastic Fridays (Snohomish)",
+   "date": "2026-11-06",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6aac43f1f9ed2e00385177ce"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Downtown Holiday Open House",
+   "date": "2026-11-06",
+   "time": "16:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/5333"
+  },
+  {
+   "venue": "Historic Downtown Snohomish",
+   "title": "Holiday Open House (Friday)",
+   "date": "2026-11-06",
+   "time": "16:00:00",
+   "url": ""
+  },
+  {
+   "venue": "Lucky Dime",
+   "title": "First Fridays: Live Music at Lucky Dime",
+   "date": "2026-11-06",
+   "time": "19:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/first-fridays-live-music-at-lucky-dime-1",
+   "type": "bar"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Everett Silvertips vs. Medicine Hat Tigers",
+   "date": "2026-11-06",
+   "time": "19:05:00",
+   "url": "https://www.ticketmaster.com/everett-silvertips-vs-medicine-hat-tigers-everett-washington-11-06-2026/event/0F0064F6A4CCB3A7",
+   "type": "sports"
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "Like A Version w/Jealous Dogs",
+   "date": "2026-11-06",
+   "time": "19:30:00",
+   "url": "https://www.ticketmaster.com/like-a-version-wjealous-dogs-everett-washington-11-06-2026/event/0F006528889652CF",
+   "age21": true,
+   "type": "concert"
   }
  ]
 }
