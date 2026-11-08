@@ -3756,6 +3756,133 @@
    "url": "https://www.ticketmaster.com/like-a-version-wjealous-dogs-everett-washington-11-06-2026/event/0F006528889652CF",
    "age21": true,
    "type": "concert"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Weekend Beginning Silversmithing",
+   "date": "2026-11-07",
+   "time": "10:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/gabd37h3bw7pea26jkfkncmbcp5drx"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Friends of the Edmonds Library Book Sale (Edmonds)",
+   "date": "2026-11-07",
+   "time": "11:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ae011b5035faf0033df4544"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Make It Now: Pumpkins",
+   "date": "2026-11-07",
+   "time": "11:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/2cy55e34cajr4xh9k2j6756hj5wbwp"
+  },
+  {
+   "venue": "Everett Community College",
+   "title": "Everett CC Trojans vs W2 Tacoma (Men's Soccer)",
+   "date": "2026-11-07",
+   "time": "12:00:00",
+   "url": "https://nwacsports.com/sports/msoc/2026-27/boxscores/20261107_fywc.xml",
+   "type": "sports"
+  },
+  {
+   "venue": "Historic Downtown Snohomish",
+   "title": "Holiday Open House (Saturday)",
+   "date": "2026-11-07",
+   "time": "12:00:00",
+   "url": ""
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Saturday D&D Group (Evergreen Branch)",
+   "date": "2026-11-07",
+   "time": "12:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8309"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Intro to Lampwork Glass - Tiny Glass Pumpkins",
+   "date": "2026-11-07",
+   "time": "13:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/24p6xnh4g8rwrymwfcd86b9k326sns"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Evergreen Branch Book Club: \"The Wedding People\"",
+   "date": "2026-11-07",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=7804"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Insect Safari (Evergreen Branch)",
+   "date": "2026-11-07",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8251"
+  },
+  {
+   "venue": "City of Everett",
+   "title": "Insect Safari",
+   "date": "2026-11-07",
+   "time": "14:00:00",
+   "url": "https://www.everettwa.gov/Calendar.aspx?EID=7808"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Chai Sip and Paint (Mukilteo)",
+   "date": "2026-11-07",
+   "time": "14:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6aa9e481a5dbde002aa4e218"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "\"Three Fingers: The Mountain, A Lookout, and Its Lookouts\" with Author Malcolm Bates (Snohomish)",
+   "date": "2026-11-07",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a987fc9b88596143287c2b7"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Bingo Bash - Snohomish Senior Center",
+   "date": "2026-11-07",
+   "time": "16:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/4589"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Make Your Own Fused Glass Serving Set",
+   "date": "2026-11-07",
+   "time": "17:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/make-your-own-fused-glass-serving-set-1"
+  },
+  {
+   "venue": "El Sid",
+   "title": "A Sinner’s Soirée",
+   "date": "2026-11-07",
+   "time": "19:00",
+   "url": "https://dice.fm/event/6ac94ff827ad2200019da4e8",
+   "end": "21:00",
+   "type": "bar"
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "The Beat Project w/Prince(ss) of Pop",
+   "date": "2026-11-07",
+   "time": "19:30:00",
+   "url": "https://www.ticketmaster.com/the-beat-project-wprincess-of-pop-everett-washington-11-07-2026/event/0F00651FADB4BDE5",
+   "age21": true,
+   "type": "concert",
+   "status": "cancelled",
+   "statusSince": "2026-11-05T02:28:35.814Z"
+  },
+  {
+   "venue": "El Sid",
+   "title": "Karaoke Night at El Sid",
+   "date": "2026-11-07",
+   "time": "20:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/9z35nk7kwt4rews-4mtkc-pgxcz-btfst-w5epk-wlbr3-dwwhy-f8adt-yzbb9-k3mp7-e6c3c-kbgdt-bbnc6-frnfn-2t67d-mspe6-f5ssj-zrwya-8lp9f-tsgze-gn2rt-96e6x",
+   "type": "bar"
   }
  ]
 }
