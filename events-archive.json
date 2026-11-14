@@ -4203,6 +4203,111 @@
    "time": "21:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/nbw8njx68bl5l89-d3g5c-284bz-gzzdz-zwgx4-xlcel-hdc37-swkme-ez6bk-hyrth-7wg7h-ksmsj-6tckf-kcyla-g4xnr-khmmd",
    "type": "concert"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Friday Hangout (Mukilteo)",
+   "date": "2026-11-13",
+   "time": "13:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8cd"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Teen Tabletop Gaming (Evergreen Branch)",
+   "date": "2026-11-13",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8280"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Dungeons & Dragons Drop-In (Lake Stevens)",
+   "date": "2026-11-13",
+   "time": "14:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ad7b103fee2d21deb2494bd"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Insect Safari (Edmonds)",
+   "date": "2026-11-13",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ab4470d08693b0f737424f2"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Fantastic Fridays (Snohomish)",
+   "date": "2026-11-13",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6aac43f1f9ed2e00385177cf"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Discover Gond Art (Marysville)",
+   "date": "2026-11-13",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a9599b9be148200298b56f0"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Lost The Plot Books & Flash Tattoos",
+   "date": "2026-11-13",
+   "time": "16:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/lost-the-plot-books-flash-tattoos-tcxgh-p6gdg",
+   "type": "bar"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Where Raptors Roam with Craig Moran (Lynnwood)",
+   "date": "2026-11-13",
+   "time": "16:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6aad88c886d84500311722e5"
+  },
+  {
+   "venue": "Elsewhere in Everett",
+   "title": "Open Mic Night at The Artisans",
+   "date": "2026-11-13",
+   "time": "18:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/open-mic-night-at-the-artisans",
+   "type": "concert"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "All Ages Karaoke Night at Helios Ballroom",
+   "date": "2026-11-13",
+   "time": "18:30:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/4711"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Skate America - Men's Short Program & Pairs Short Program",
+   "date": "2026-11-13",
+   "time": "19:00:00",
+   "url": "https://www.ticketmaster.com/skate-america-mens-short-program-pairs-everett-washington-11-13-2026/event/0F0064E887BA4595",
+   "type": "sports"
+  },
+  {
+   "venue": "Lucky Dime",
+   "title": "Live Music at Lucky Dime",
+   "date": "2026-11-13",
+   "time": "19:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/live-music-at-lucky-dime-1",
+   "type": "bar"
+  },
+  {
+   "venue": "Elsewhere in Everett",
+   "title": "Neil Young Musical Birthday Celebration at Port Gardner Bay Winery",
+   "date": "2026-11-13",
+   "time": "19:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/neil-young-musical-bday-celebration-at-port-gardner-bay-winery",
+   "type": "concert"
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "Queen Nation",
+   "date": "2026-11-13",
+   "time": "20:00:00",
+   "url": "https://www.ticketmaster.com/queen-nation-everett-washington-11-13-2026/event/0F006523EAD41F8A",
+   "age21": true,
+   "type": "concert"
   }
  ]
 }
