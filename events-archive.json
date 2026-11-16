@@ -4433,6 +4433,50 @@
    "url": "https://www.ticketmaster.com/an-evening-with-steve-trevino-tulalip-washington-11-14-2026/event/0F00652A4AB5A8EA",
    "age21": true,
    "type": "arts"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "One-day Figure Drawing Workshop for Adults",
+   "date": "2026-11-15",
+   "time": "09:30:00",
+   "url": "https://www.schack.org/classes-workshops-events/one-day-figure-drawing-workshop-for-adults"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Spoon Carving for Beginners",
+   "date": "2026-11-15",
+   "time": "10:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/spoon-carving-for-beginners-2"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Skate America- Free Dance and Women's Free Skate",
+   "date": "2026-11-15",
+   "time": "11:00:00",
+   "url": "https://www.ticketmaster.com/skate-america-free-dance-and-womens-everett-washington-11-15-2026/event/0F0064E887C445A8",
+   "type": "sports"
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Flood Ready: Resident Emergency Preparedness Training (In Person)",
+   "date": "2026-11-15",
+   "time": "14:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/5327"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Exploring Borosilicate Glass",
+   "date": "2026-11-15",
+   "time": "14:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/66f8znc88rylddka39b8e98t32bhpx"
+  },
+  {
+   "venue": "Elsewhere in Everett",
+   "title": "Local Talent Sundays at The Ten-01",
+   "date": "2026-11-15",
+   "time": "18:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/local-talent-sundays-at-the-ten-01",
+   "type": "concert"
   }
  ]
 }
