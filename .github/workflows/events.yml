@@ -60,7 +60,7 @@ jobs:
       - name: Fetch & aggregate events
         env:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
-          GITHUB_TOKEN: ${{ github.token }}   # reads the festival answers in sfosdal/lqa-events' issues (scripts/festivals.mjs)
+          GITHUB_TOKEN: ${{ github.token }}   # reads the festival answers in sfosdal/here-core's issues (scripts/festivals.mjs)
         run: node scripts/fetch-events.mjs
       - name: Full history of this branch (each page's Last revised date is the day git last saw it change)
         run: git fetch --unshallow --no-tags origin "$GITHUB_REF" || true
