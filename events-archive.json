@@ -4867,6 +4867,135 @@
    "time": "20:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/9z35nk7kwt4rews-4mtkc-pgxcz-btfst-w5epk-wlbr3-dwwhy-f8adt-yzbb9-k3mp7-e6c3c-kbgdt-bbnc6-frnfn-2t67d-mspe6-f5ssj-zrwya-8lp9f-tsgze-gn2rt-96e6x-9lccg-3tkeh",
    "type": "bar"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Electronics Recycling Drive (Marysville)",
+   "date": "2026-11-20",
+   "time": "10:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ab570a9101eb7003f32a2de"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Friday Hangout (Mukilteo)",
+   "date": "2026-11-20",
+   "time": "13:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a5ff17b7d824676437cb8ce"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Teen Tabletop Gaming (Evergreen Branch)",
+   "date": "2026-11-20",
+   "time": "14:00:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8281"
+  },
+  {
+   "venue": "City of Marysville",
+   "title": "Twilight Instrumental 80's w/ Chamber Music Marysville",
+   "date": "2026-11-20",
+   "time": "14:00:00",
+   "url": "https://www.marysvillewa.gov/Calendar.aspx?EID=3040"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Dungeons & Dragons Drop-In (Lake Stevens)",
+   "date": "2026-11-20",
+   "time": "14:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ad7b103fee2d21deb2494be"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Teen Time - Decorate a Mug (Edmonds)",
+   "date": "2026-11-20",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a4ee40ac7e02e3d0067cf23"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Raptor: What's in a Name? (Edmonds)",
+   "date": "2026-11-20",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6ab5ba8e3dd190003e746f8d"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "LEGO® in the Library (Mill Creek)",
+   "date": "2026-11-20",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/69ebfcd2fca21471b7f041a0"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Lego® Engineers (Evergreen Branch)",
+   "date": "2026-11-20",
+   "time": "15:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8273"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Fall Themed Paper Mosaic Crafting (Marysville)",
+   "date": "2026-11-20",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a9731b5aafa61002960cadf"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Fantastic Fridays (Snohomish)",
+   "date": "2026-11-20",
+   "time": "15:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6aac43f1f9ed2e00385177d0"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Sensory Bin Fun Time – Juego Sensorial (Mariner)",
+   "date": "2026-11-20",
+   "time": "16:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/69f50d1cfb87a3c2e2ad36df"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "We Art Here",
+   "date": "2026-11-20",
+   "time": "17:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/we-art-here-ce3xr-jp9kd-wwdyh",
+   "type": "bar"
+  },
+  {
+   "venue": "Lucky Dime",
+   "title": "Live Event at Lucky Dime",
+   "date": "2026-11-20",
+   "time": "19:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/live-event-at-lucky-dime",
+   "type": "bar"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Everett Silvertips vs. Kamloops Blazers",
+   "date": "2026-11-20",
+   "time": "19:05:00",
+   "url": "https://www.ticketmaster.com/everett-silvertips-vs-kamloops-blazers-everett-washington-11-20-2026/event/0F0064F6A4D1B3B8",
+   "type": "sports",
+   "tickets": {
+    "box": null,
+    "resale": 0,
+    "checked": "2026-11-17T00:39:32.040Z",
+    "from": 32.08
+   }
+  },
+  {
+   "venue": "APEX Everett",
+   "title": "Noise Pollution",
+   "date": "2026-11-20",
+   "time": "19:30:00",
+   "url": "https://www.ticketmaster.com/noise-pollution-everett-washington-11-20-2026/event/0F00652985AE4C60",
+   "age21": true,
+   "type": "concert",
+   "tickets": {
+    "box": null,
+    "resale": 0,
+    "checked": "2026-11-17T00:39:52.130Z",
+    "from": 32.65
+   }
   }
  ]
 }
