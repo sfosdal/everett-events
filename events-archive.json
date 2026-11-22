@@ -4996,6 +4996,85 @@
     "checked": "2026-11-17T00:39:52.130Z",
     "from": 32.65
    }
+  },
+  {
+   "venue": "City of Snohomish",
+   "title": "Holiday Bazaar",
+   "date": "2026-11-21",
+   "time": "09:00:00",
+   "url": "https://www.snohomishwa.gov/m/calendar/event/detail/5233"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Lampwork Glass Beadmaking",
+   "date": "2026-11-21",
+   "time": "10:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/jwkkbyyehdwgt3jn5w6ldf9hfrg6kt"
+  },
+  {
+   "venue": "Everett Public Library",
+   "title": "Saturday D&D Group (Evergreen Branch)",
+   "date": "2026-11-21",
+   "time": "12:30:00",
+   "url": "https://www.epls.org/Calendar.aspx?EID=8311"
+  },
+  {
+   "venue": "City of Everett",
+   "title": "Community Feed & Food Giveaway",
+   "date": "2026-11-21",
+   "time": "13:00:00",
+   "url": "https://www.everettwa.gov/Calendar.aspx?EID=7818"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Mixed Media Photo Tracing - A SilverKite Workshop (Mukilteo)",
+   "date": "2026-11-21",
+   "time": "15:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a91c5796383850d1b2476ad"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "Craft, Chat & Chill: Card Making / Crea tus propias Tarjetas (Mariner)",
+   "date": "2026-11-21",
+   "time": "16:00:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a7b87d0a821f90037ed30de"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Holiday Mosaics",
+   "date": "2026-11-21",
+   "time": "18:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/holiday-mosaics-5"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Line Dancing",
+   "date": "2026-11-21",
+   "time": "18:00:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/event-two-w7zrh-s4xbg-nypkl-ktbcg-f47b6-btheg-hkgeh-r223h-hrtxb-c5hls",
+   "type": "bar"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Everett Silvertips vs. Seattle Thunderbirds",
+   "date": "2026-11-21",
+   "time": "18:05:00",
+   "url": "https://www.ticketmaster.com/everett-silvertips-vs-seattle-thunderbirds-everett-washington-11-21-2026/event/0F0064F6A4D3B3CA",
+   "type": "sports",
+   "tickets": {
+    "box": null,
+    "resale": 0,
+    "checked": "2026-11-17T01:08:28.276Z",
+    "from": 33.13
+   }
+  },
+  {
+   "venue": "Lucky Dime",
+   "title": "Live Music at Lucky Dime",
+   "date": "2026-11-21",
+   "time": "19:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/live-music-at-lucky-dime-3",
+   "type": "bar"
   }
  ]
 }
