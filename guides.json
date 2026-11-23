@@ -1,5 +1,30 @@
 {
-  "venues": {},
-  "teams": {},
-  "skip": ["Elsewhere in Everett"]
+  "venues": {
+    "Sno-Isle Libraries": "The public library system for Snohomish and Island counties, with branches in nearly every town around Everett. Almost everything is free: storytimes, classes, author talks and book groups.",
+    "Schack Art Center": "A downtown Everett arts center with free galleries and a working glass hot shop you can watch from the floor. Most of what is listed here are classes, so check the age and sign-up details on the Schack’s page. Lots of events for kids and adults.",
+    "Funko Field": "The ballpark at Everett Memorial Stadium on Broadway, home of the AquaSox. A local favorite. It is a small park where every seat is close to the field.",
+    "Angel of the Winds Arena": "Everett’s downtown arena on Hewitt Avenue, home ice of the Silvertips and the stop for big touring concerts and family shows. Downtown’s bars and restaurants are a short walk away, so it is easy to make a night of it. Largest event space in Everett.",
+    "Scuttlebutt Brewing": "One of Everett’s hometown breweries, pouring since 1996, with a family restaurant on the waterfront and a taproom at the brewery. Expect trivia, live music and beer releases.",
+    "Port of Everett": "The waterfront: the marina, Waterfront Place and Boxcar Park. Summer brings outdoor concerts and the Sunday farmers market, and the holidays bring lights along the docks. And... a lot of new sweet restaurants. It is the biggest active new bar/restaurant area in Everett.",
+    "Everett Public Library": "The city’s own library, with the main branch downtown on Hoyt Avenue and the Evergreen Branch in south Everett. Events are free and lean toward local history, authors and kids.",
+    "City of Snohomish": "Events put on by the City of Snohomish, about fifteen minutes east of Everett: parades, markets and community gatherings.",
+    "APEX Everett": "The APEX Art and Culture Center fills the old Masonic temple on Everett Avenue downtown, with Kings Hall for concerts and several smaller rooms under one roof.",
+    "Lucky Dime": "A small bar on Hewitt Avenue in downtown Everett with local and touring bands on its stage. It is 21 and over.",
+    "City of Mill Creek": "Community events from the City of Mill Creek, south of Everett, many of them around Mill Creek Town Center.",
+    "El Sid": "A bar and music room inside the APEX building downtown, with blues nights, local bands and DJs. It is 21 and over.",
+    "Historic Downtown Snohomish": "First Street in Snohomish: antique shops, restaurants and the riverfront, with wine walks, car shows and holiday events through the year.",
+    "City of Everett": "Events the City of Everett puts on itself: parades, park concerts, the Fourth of July and seasonal festivals. Most are free.",
+    "Tulalip Resort Casino": "The casino resort north of Everett, just off I-5. Shows are in the Orca Ballroom, and most are 21 and over.",
+    "City of Marysville": "Community events from the City of Marysville, just north of Everett across the river: the Strawberry Festival season, park concerts and holiday lights.",
+    "Village Theatre": "Professional musical theatre at the Everett Performing Arts Center on Wetmore Avenue downtown. Each show plays for several weeks, with evening and matinee performances.",
+    "Historic Everett Theatre": "Everett’s oldest theatre, opened in 1901 on Colby Avenue downtown. It hosts tribute bands, comedy, classic films and community shows.",
+    "Edmonds Center for the Arts": "A 700-seat hall in a restored school auditorium in Edmonds, about half an hour south of Everett, with touring music, dance and speakers.",
+    "City of Mukilteo": "Community events from the City of Mukilteo, by the ferry and the lighthouse southwest of Everett."
+  },
+  "teams": {
+    "silvertips": "Everett’s Western Hockey League team, at Angel of the Winds Arena since 2003. The players are 16 to 20 years old and many go on to the NHL; games are loud, fast and good for families.",
+    "aquasox": "The Seattle Mariners’ High-A affiliate, playing at Funko Field from April into September. Tickets are cheap, the park is small, and tomorrow’s Mariners come through here first.",
+    "trojans": "Everett Community College’s teams, playing other Northwest community colleges. Home games are on campus in north Everett.",
+    "wolfpack": "Everett’s indoor football team, playing at Angel of the Winds Arena since 2024. The season runs in spring and summer."
+  }
 }
