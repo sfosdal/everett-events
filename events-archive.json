@@ -5075,6 +5075,43 @@
    "time": "19:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/live-music-at-lucky-dime-3",
    "type": "bar"
+  },
+  {
+   "venue": "City of Everett",
+   "title": "Everett Farmers Market Gather and Give Celebration",
+   "date": "2026-11-22",
+   "time": "10:30:00",
+   "url": "https://www.everettwa.gov/Calendar.aspx?EID=7821"
+  },
+  {
+   "venue": "Schack Art Center",
+   "title": "Lampworking: Make A Pipe",
+   "date": "2026-11-22",
+   "time": "14:00:00",
+   "url": "https://www.schack.org/classes-workshops-events/lampworking-make-a-pipe-3"
+  },
+  {
+   "venue": "City of Everett",
+   "title": "The Music Circle Presents: Y2K - a Tribute to 2000's Rock Music That Defined a Generation!",
+   "date": "2026-11-22",
+   "time": "17:00:00",
+   "url": "https://www.everettwa.gov/Calendar.aspx?EID=7803"
+  },
+  {
+   "venue": "Scuttlebutt Brewing",
+   "title": "Cornhole",
+   "date": "2026-11-22",
+   "time": "17:30:00",
+   "url": "https://www.scuttlebuttbrewing.com/events/cornhole-zjyaf-ll8nm-8xmyb-k4f4c-mraxf-ftgft",
+   "type": "bar"
+  },
+  {
+   "venue": "Elsewhere in Everett",
+   "title": "Local Talent Sundays at The Ten-01",
+   "date": "2026-11-22",
+   "time": "18:00:00",
+   "url": "https://www.lateshifteverett.com/eventscalendar/local-talent-sundays-at-the-ten-01-5ht6j",
+   "type": "concert"
   }
  ]
 }
