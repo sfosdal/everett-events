@@ -53,6 +53,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: astral-sh/setup-uv@v6   # uv runs scripts/cffi-fetch.py for the shared feeds with chrome: true (The Muse's Popmenu page refuses GitHub's runners, 2026-11-24)
       - name: Test
         run: node --test scripts/*.test.mjs
       - name: Chrome-like fetch for the bot-walled sources (scripts/cffi-fetch.py)
