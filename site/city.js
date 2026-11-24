@@ -231,6 +231,16 @@
       icon: 'marks/venues/scuttlebuttbrewing.com.png',
       alias: /scuttlebutt/i,
     },
+    'The Muse Whiskey & Coffee': {
+      geo: [48.001502, -122.220652],
+      type: 'bar',
+      cssVar: '--v-muse',
+      color: '#d8a878',
+      url: 'https://www.thewhiskeymuse.com/events',
+      icon: 'marks/venues/thewhiskeymuse.com.png',
+      feed: { kind: 'popmenu', chrome: true, url: 'https://www.thewhiskeymuse.com/events', drop: /^(waikiki wednesday|prohibition night)$/i },
+      alias: /\bmuse whiskey|\bwhiskey muse\b/i,
+    },
     'Historic Everett Theatre': {
       geo: [47.97876, -122.20837],
       capacity: 800,
@@ -347,7 +357,7 @@
   // Six base-36 digits hold 31 bits; 27 are used (five held 25 until the
   // Seattle clubs arrived on 2026-10-11 — codes from that first day read fine,
   // a shorter code is just a smaller number).
-  var CODE_LENGTH = 8; // 40 slots since 2026-10-11 (the under-20-minutes round); 6-digit codes from before still read
+  var CODE_LENGTH = 9; // 40 slots since 2026-10-11 (the under-20-minutes round); 6-digit codes from before still read
   var REGISTRY = [
     ['venue', 'Angel of the Winds Arena'], ['venue', 'Funko Field'], ['venue', 'APEX Everett'], ['venue', 'Port of Everett'],
     ['venue', 'Village Theatre'], ['venue', 'New Life Church'] /* dead slot: the venue left 2026-10-11 (church events are never listed); kept so older codes keep their meaning */, ['venue', 'Everett Community College'], ['venue', 'El Sid'], ['venue', 'Lucky Dime'],
@@ -359,6 +369,7 @@
     ['venue', 'Schack Art Center'], ['venue', 'Everett Public Library'], ['venue', 'City of Everett'], ['venue', 'Scuttlebutt Brewing'], ['venue', 'Historic Everett Theatre'], // appended 2026-10-11, the under-20-minutes round
     ['venue', 'Tulalip Resort Casino'], ['venue', 'Edmonds Center for the Arts'], ['venue', 'Sno-Isle Libraries'], ['venue', 'City of Marysville'], ['venue', 'City of Mukilteo'], ['venue', 'City of Snohomish'], ['venue', 'Historic Downtown Snohomish'], ['venue', 'City of Mill Creek'],
     ['venue', 'El Sid at the APEX'], // appended 2026-10-19 (41 slots, still 8 digits); dead slot since 2026-10-20 (merged into El Sid), kept so older codes keep their meaning
+    ['venue', 'The Muse Whiskey & Coffee'],
   ];
 
   // The words the page uses for the place
