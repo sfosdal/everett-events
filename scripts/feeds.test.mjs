@@ -542,7 +542,7 @@ test('mapPopmenuEvents: one-offs on their day and clock, weekly events from toda
   assert.ok(events.every((e) => e.date >= '2026-11-24' && e.date <= '2027-01-05'));
 });
 
-test('mapPopmenuEvents: drop, skipped dates, an ended series, other locations, inactive and secret events, a run, a monthly repeat', () => {
+test('mapPopmenuEvents: drop, skipped dates, an ended series, other locations, inactive and secret events, a run, a show past midnight, a monthly repeat', () => {
   const extra = [
     pm({ id: 1, name: 'Trivia', startAt: '2026-01-06', startTime: 68400, isRecurring: true, isTuesday: true, eventTimeDescription: 'Weekly Tue', calendarEventRecurringExceptions: [{ exceptionAt: '2026-12-01' }, { exceptionAt: '2026-12-08T00:00:00-08:00' }], endAt: '2026-12-15' }),
     pm({ id: 2, name: 'Wine Club', startAt: '2026-01-03', isRecurring: true, recurringType: 'monthly', eventTimeDescription: 'Monthly on the first Saturday' }),
@@ -552,6 +552,7 @@ test('mapPopmenuEvents: drop, skipped dates, an ended series, other locations, i
     pm({ id: 6, name: 'Holiday Market', startAt: '2026-12-11', endAt: '2026-12-13', startTime: 39600 }),
     pm({ id: 7, name: 'Summer Fest', startAt: '2026-06-01', endAt: '2026-08-31', startTime: 39600 }),
     pm({ id: 8, name: 'Untimed Weekly', startAt: '2026-11-03', isRecurring: true, eventTimeDescription: 'Weekly Tue 11/03/2026' }),
+    pm({ id: 9, name: 'Late Night Dance Party', startAt: '2026-11-28', endAt: '2026-11-29', startTime: 85500, endTime: 10800, eventTimeDescription: '11/28/2026 23:45:00 - 11/29/2026 03:00:00' }),
   ];
   const { events, skipped } = mapPopmenuEvents([...MUSE, ...extra], { ...MUSE_OPTS, drop: /^(waikiki wednesday|prohibition night)$/i, location: /everett/i });
   const titles = new Set(events.map((e) => e.title));
@@ -560,5 +561,17 @@ test('mapPopmenuEvents: drop, skipped dates, an ended series, other locations, i
   assert.deepEqual(skipped, ['Wine Club']);
   for (const t of ['Closed Night', 'Staff Party', 'Lynnwood Jazz', 'Summer Fest']) assert.ok(!titles.has(t), t);
   assert.deepEqual(events.filter((e) => e.title === 'Holiday Market').map((e) => e.date), ['2026-12-11', '2026-12-12', '2026-12-13']);
+  assert.deepEqual(events.filter((e) => e.title === 'Late Night Dance Party').map((e) => [e.date, e.time, e.end]), [['2026-11-28', '23:45', undefined]]); // past midnight: one night (Smith's Olde Bar, 2026-11-24)
   assert.deepEqual(events.filter((e) => e.title === 'Untimed Weekly').map((e) => e.date).slice(0, 2), ['2026-11-24', '2026-12-01']); // no weekday flags: its first date's weekday
+});
+
+test('mapPopmenuEvents: `rename` takes a promoter\'s "X Presents" off the title, drop then sees the cleaned title', () => {
+  const list = [
+    pm({ id: 1, name: 'SOBATL Presents Global Ringo with Pepper Davis', startAt: '2026-11-27', endAt: '2026-11-27', startTime: 68400 }),
+    pm({ id: 2, name: 'EAR Productions, DJ EU & JB Entertainment Present Noreh', startAt: '2026-12-18', endAt: '2026-12-18', startTime: 68400 }),
+    pm({ id: 3, name: 'Caleb Lee Hutchinson: Long Line of Losers Tour', startAt: '2026-12-11', endAt: '2026-12-11', startTime: 68400 }),
+    pm({ id: 4, name: 'SOBATL Presents Private Event', startAt: '2026-12-12', endAt: '2026-12-12', startTime: 68400 }),
+  ];
+  const { events } = mapPopmenuEvents(list, { ...MUSE_OPTS, rename: [[/^[^:]*?\bpresents?\s+/i, '']], drop: /^private event$/i });
+  assert.deepEqual(events.map((e) => e.title), ['Global Ringo with Pepper Davis', 'Noreh', 'Caleb Lee Hutchinson: Long Line of Losers Tour']);
 });
