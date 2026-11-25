@@ -129,7 +129,7 @@
       cssVar: '--v-funko',
       color: '#5fcbd6',
       url: 'https://www.milb.com/everett/schedule',
-      icon: 'marks/venues/milb.com.png',
+      icon: 'marks/venues/everett.svg',
       alias: /funko field|everett memorial stadium/i,
     },
     'APEX Everett': {
