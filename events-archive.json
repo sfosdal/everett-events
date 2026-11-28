@@ -5299,6 +5299,36 @@
    "time": "19:00:00",
    "url": "https://www.lateshifteverett.com/eventscalendar/trivia-night-at-the-ten-01-hn95t-jybmf-zedt6-47y7d-tyxay-6lpmp-bm8pr-32yap-gfzyf-6d9xg-y7b3h-g3wdw-p6eya-jz7gk-hf5g3-lb5fg-kdyxt-8f9gx-ylj4j-fdf79-3gydw-tp32d-3jlyc-wsaed-5jkjs-n83zw-sw83a-6as6l-42nxm",
    "type": "concert"
+  },
+  {
+   "venue": "The Muse Whiskey & Coffee",
+   "title": "Shut Up and Write!",
+   "date": "2026-11-27",
+   "time": "10:00",
+   "url": "https://www.meetup.com/shutupandwritesnohomishcounty/events/305349093/",
+   "end": "11:30",
+   "type": "bar"
+  },
+  {
+   "venue": "Sno-Isle Libraries",
+   "title": "LEGO® Brick Building (Lynnwood)",
+   "date": "2026-11-27",
+   "time": "16:30:00",
+   "url": "https://sno-isle.bibliocommons.com/events/6a7b88a8b204780029923c15"
+  },
+  {
+   "venue": "Angel of the Winds Arena",
+   "title": "Everett Silvertips vs. Portland Winterhawks",
+   "date": "2026-11-27",
+   "time": "19:05:00",
+   "url": "https://www.ticketmaster.com/everett-silvertips-vs-portland-winterhawks-everett-washington-11-27-2026/event/0F0064F6A4D7B3E7",
+   "type": "sports",
+   "tickets": {
+    "box": null,
+    "resale": 0,
+    "checked": "2026-11-23T00:57:23.240Z",
+    "from": 32.08
+   }
   }
  ]
 }
